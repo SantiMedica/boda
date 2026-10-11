@@ -75,7 +75,7 @@
         /* Leaf float animation */
         @keyframes floatLeaf {
             0% { transform: translateY(-10px) rotate(0deg) translateX(0); opacity: 0; }
-            20% { opacity: 0.8; }
+            20% { opacity: 0.5; }
             100% { transform: translateY(100vh) rotate(360deg) translateX(50px); opacity: 0; }
         }
 
@@ -113,7 +113,7 @@
         /* Winding Path SVG Line Animation */
         .path-line {
             stroke-dasharray: 8;
-            animation: dash 30s linear infinite;
+            animation: dash 20s linear infinite;
         }
         @keyframes dash {
             to {
