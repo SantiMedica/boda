@@ -40,6 +40,14 @@
     </script>
 
     <style>
+	
+.top-bar {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 8px 0;
+  font-size: 14px;
+}
         /* Custom Parchment Background Texture Effect */
         .bg-parchment-texture {
             background-color: #f4ebd9;
