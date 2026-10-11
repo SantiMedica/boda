@@ -75,7 +75,7 @@
         /* Leaf float animation */
         @keyframes floatLeaf {
             0% { transform: translateY(-10px) rotate(0deg) translateX(0); opacity: 0; }
-            20% { opacity: 0.5; }
+            20% { opacity: 0.8; }
             100% { transform: translateY(100vh) rotate(360deg) translateX(50px); opacity: 0; }
         }
 
@@ -83,7 +83,7 @@
             position: fixed;
             pointer-events: none;
             z-index: 40;
-            animation: floatLeaf 12s linear infinite;
+            animation: floatLeaf 30s linear infinite;
         }
 
         /* Wax seal button effect */
@@ -683,7 +683,7 @@
         function createLeaves() {
             const container = document.getElementById('leaves-container');
             const leafIcons = ['🍃', '🌿', '🍁'];
-            for (let i = 0; i < 15; i++) {
+            for (let i = 0; i < 10; i++) {
                 let leaf = document.createElement('div');
                 leaf.className = 'leaf-particle';
                 leaf.innerText = leafIcons[Math.floor(Math.random() * leafIcons.length)];
