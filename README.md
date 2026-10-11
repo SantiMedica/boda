@@ -140,7 +140,7 @@
         </button>
     </div>
 
-    <header class="relative min-h-screen flex flex-col items-center justify-center text-center p-6 bg-cover bg-center overflow-hidden" style="background-image: linear-gradient(rgba(27, 18, 12, 0.75), rgba(27, 18, 12, 0.85)), url('https://lh3.googleusercontent.com/d/17BBz1ogRl6kd-NFodJ7pw1LcCCkvRJCw');">
+    <header class="relative min-h-screen flex flex-col items-center justify-center text-center p-6 bg-cover bg-center overflow-hidden" style="background-image: linear-gradient(rgba(27, 18, 12, 0.75), rgba(27, 18, 12, 0.85)), url('https://lh3.googleusercontent.com/d/1zVbHNJ5GXOyyJCQX1mASLS1U62c7aIBA');">
         <!-- Elven Rune / Vignette Border -->
         <div class="absolute inset-0 border-[12px] border-shire-gold/30 pointer-events-none"></div>
         <div class="absolute inset-4 border border-shire-gold/50 pointer-events-none"></div>
@@ -167,7 +167,7 @@
                 29 DE MAYO DE 2027
             </H1>
 		<P class="text-shire-parchmentDark text-lg sm:text-xl font-semibold tracking-wider">
-                • MOTRIL & SALOBREÑA
+                • MOTRIL & SALOBREÑA •
             	</P>
 
             <!-- Countdown Timer -->
@@ -305,7 +305,7 @@
                     <!-- Stop 5 (Hobbiton Gallery: 4 photos) -->
                     <div class="flex flex-col md:flex-row items-center gap-8 bg-parchment-card p-6 sm:p-8 rounded-xl border-2 border-shire-parchmentBorder hover:border-shire-gold transition shadow-xl group">
                         <div class="w-full md:w-1/2 grid grid-cols-2 gap-2">
-                            <img src="https://lh3.googleusercontent.com/d/17BBz1ogRl6kd-NFodJ7pw1LcCCkvRJCw" alt="La Comarca 1" class="w-full h-32 object-cover rounded-lg border border-shire-wood cursor-pointer hover:scale-105 transition" onclick="openModal('https://lh3.googleusercontent.com/d/17BBz1ogRl6kd-NFodJ7pw1LcCCkvRJCw', 'Llegada a La Comarca', 'Las icónicas puertas redondas y el calor de las chimeneas.')">
+                            <img src="https://lh3.googleusercontent.com/d/1zVbHNJ5GXOyyJCQX1mASLS1U62c7aIBA" alt="La Comarca 1" class="w-full h-32 object-cover rounded-lg border border-shire-wood cursor-pointer hover:scale-105 transition" onclick="openModal('https://lh3.googleusercontent.com/d/1zVbHNJ5GXOyyJCQX1mASLS1U62c7aIBA', 'Llegada a La Comarca', 'Las icónicas puertas redondas y el calor de las chimeneas.')">
                             <img src="https://lh3.googleusercontent.com/d/1gHRfaApvqoZnfEYVo4gfcfTLfb_W5htd" alt="La Comarca 2" class="w-full h-32 object-cover rounded-lg border border-shire-wood cursor-pointer hover:scale-105 transition" onclick="openModal('https://lh3.googleusercontent.com/d/1gHRfaApvqoZnfEYVo4gfcfTLfb_W5htd', 'Llegada a La Comarca', 'Ataviados con los mejores ropajes comarcales.')">
                             <img src="https://lh3.googleusercontent.com/d/1nIRvizLGZ6VYe9jnspeIygQeaGptRdhb" alt="La Comarca 3" class="w-full h-32 object-cover rounded-lg border border-shire-wood cursor-pointer hover:scale-105 transition" onclick="openModal('https://lh3.googleusercontent.com/d/1nIRvizLGZ6VYe9jnspeIygQeaGptRdhb', 'Llegada a La Comarca', 'Preparando los festejos y banquetes.')">
                             <img src="https://lh3.googleusercontent.com/d/1ZA7GpkQqoZdAChnsNISetpiS7Nll_Zq2" alt="La Comarca 4" class="w-full h-32 object-cover rounded-lg border border-shire-wood cursor-pointer hover:scale-105 transition" onclick="openModal('https://lh3.googleusercontent.com/d/1ZA7GpkQqoZdAChnsNISetpiS7Nll_Zq2', 'Llegada a La Comarca', 'A través del portal redondo donde nace la historia.')">
@@ -318,7 +318,7 @@
                             <p class="text-lg text-shire-woodlight leading-relaxed">
                                 ¡Por fin en Hobbiton! Entre agujeros hobbit, puertas redondas rojas y verdes, cervezas de la Taberna del Dragón Verde y sonrisas complices. Aquí juramos celebrar el amor con comida, música y risas infinitas.
                             </p>
-                            <button onclick="openModal('https://lh3.googleusercontent.com/d/17BBz1ogRl6kd-NFodJ7pw1LcCCkvRJCw', 'Llegada a La Comarca', '¡Por fin en Hobbiton! Entre agujeros hobbit, puertas redondas rojas y verdes, cervezas y sonrisas complices.')" class="font-fantasy text-sm text-shire-ruby hover:text-shire-gold transition flex items-center space-x-2">
+                            <button onclick="openModal('https://lh3.googleusercontent.com/d/1zVbHNJ5GXOyyJCQX1mASLS1U62c7aIBA', 'Llegada a La Comarca', '¡Por fin en Hobbiton! Entre agujeros hobbit, puertas redondas rojas y verdes, cervezas y sonrisas complices.')" class="font-fantasy text-sm text-shire-ruby hover:text-shire-gold transition flex items-center space-x-2">
                                 <i class="fas fa-camera font-bold"></i>
                                 <span>Ver Galería Completa de Hobbiton</span>
                             </button>
