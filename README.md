@@ -140,7 +140,9 @@
         </button>
     </div>
 
-    <header class="relative min-h-screen flex flex-col items-center justify-center text-center p-6 bg-cover bg-center overflow-hidden" style="background-image: linear-gradient(rgba(27, 18, 12, 0.75), rgba(27, 18, 12, 0.85)), url('https://lh3.googleusercontent.com/d/1zVbHNJ5GXOyyJCQX1mASLS1U62c7aIBA');">
+    <header class="relative min-h-screen flex flex-col items-center justify-center text-center p-6 bg-cover  bg-center " style="background-image: linear-gradient(rgba(27, 18, 12, 0.4), rgba(27, 18, 12, 0.5)), url('https://lh3.googleusercontent.com/d/1zVbHNJ5GXOyyJCQX1mASLS1U62c7aIBA');">
+
+
         <!-- Elven Rune / Vignette Border -->
         <div class="absolute inset-0 border-[12px] border-shire-gold/30 pointer-events-none"></div>
         <div class="absolute inset-4 border border-shire-gold/50 pointer-events-none"></div>
@@ -148,7 +150,7 @@
         <div class="relative z-10 max-w-4xl mx-auto space-y-6 transform transition-all duration-1000">
             <!-- Decorative Symbol -->
             <div class="inline-block mb-2">
-                <span class="text-shire-gold text-4xl sm:text-5xl font-fantasy">🍃 ᚨᛗᛁᚷᛟ ᛗᛁᛟ 🍃</span>
+                <span class="text-shire-gold text-2xl sm:text-2xl font-fantasy">🍃 ᚨᛗᛁᚷᛟ ᛗᛁᛟ 🍃</span>
             </div>
 
             <p class="font-fantasy text-shire-gold text-lg sm:text-2xl tracking-widest uppercase">Estás invitado a la Comunidad de</p>
@@ -156,6 +158,8 @@
             <h1 class="font-heading text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold text-gold-gradient tracking-wide leading-tight drop-shadow-lg">
                 Santiago <span class="font-fantasy text-shire-parchment text-3xl sm:text-5xl">&</span> Jenifer
             </h1>
+
+
 
             <div class="w-32 h-1 bg-gradient-to-r from-transparent via-shire-gold to-transparent mx-auto my-4"></div>
 
