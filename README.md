@@ -75,7 +75,7 @@
         /* Leaf float animation */
         @keyframes floatLeaf {
             0% { transform: translateY(-10px) rotate(0deg) translateX(0); opacity: 0; }
-            20% { opacity: 0.8; }
+            20% { opacity: 0.6; }
             100% { transform: translateY(100vh) rotate(360deg) translateX(50px); opacity: 0; }
         }
 
@@ -683,14 +683,14 @@
         function createLeaves() {
             const container = document.getElementById('leaves-container');
             const leafIcons = ['🍃', '🌿', '🍁'];
-            for (let i = 0; i < 10; i++) {
+            for (let i = 0; i < 9; i++) {
                 let leaf = document.createElement('div');
                 leaf.className = 'leaf-particle';
                 leaf.innerText = leafIcons[Math.floor(Math.random() * leafIcons.length)];
                 leaf.style.left = Math.random() * 100 + 'vw';
                 leaf.style.animationDuration = (8 + Math.random() * 10) + 's';
                 leaf.style.animationDelay = (Math.random() * 5) + 's';
-                leaf.style.fontSize = (16 + Math.random() * 16) + 'px';
+                leaf.style.fontSize = (15 + Math.random() * 15) + 'px';
                 container.appendChild(leaf);
             }
         }
