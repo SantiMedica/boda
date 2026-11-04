@@ -474,7 +474,7 @@
         <div class="text-center mb-12 space-y-3">
             <p class="font-fantasy text-shire-ruby text-lg">Decreto Real de Asistencia</p>
             <h2 class="font-heading text-3xl sm:text-5xl font-bold text-shire-wood uppercase tracking-wider">
-                Confirma tu Asistencia
+                Juramento de presencia
             </h2>
             <div class="w-24 h-1 bg-shire-gold mx-auto"></div>
             <p class="text-lg italic text-shire-woodlight">
@@ -564,7 +564,7 @@
                     <div class="space-y-3">
                         <label class="flex items-start gap-3 p-3 bg-white/80 border-2 border-shire-parchmentBorder rounded-lg cursor-pointer hover:border-shire-gold transition-colors">
                             <input type="radio" name="bus_option" value="No" required class="mt-1.5 text-shire-gold focus:ring-shire-gold">
-                            <span><strong>No precisaré caravana:</strong> No, mi buen amigo. Seguiré mi propio camino, como un auténtico montaraz (no, gracias).</span>
+                            <span><strong>No precisaré caravana:</strong> No, mi buen amigo. Seguiré mi propio camino, como un auténtico montaraz.</span>
                         </label>
                         <label class="flex items-start gap-3 p-3 bg-white/80 border-2 border-shire-parchmentBorder rounded-lg cursor-pointer hover:border-shire-gold transition-colors">
                             <input type="radio" name="bus_option" value="Solo ida" required class="mt-1.5 text-shire-gold focus:ring-shire-gold">
