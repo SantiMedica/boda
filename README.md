@@ -236,8 +236,7 @@
                 </h2>
                 <div class="w-24 h-1 bg-shire-gold mx-auto"></div>
                 <p class="text-lg max-w-2xl mx-auto italic text-shire-woodlight">
-                   Un viaje de mil leguas comienza con un solo paso. Acompáñanos, pues nosotros ya hemos dado unos cuantos...
-                </p>
+                    Un viaje de mil leguas comienza con un solo paso. Acompáñanos, pues nosotros ya hemos dado unos cuantos...                </p>
             </div>
 
             <!-- Winding Path Timeline Container -->
@@ -260,7 +259,7 @@
                         <div class="w-full md:w-1/2 space-y-4">
                             <div class="flex items-center space-x-3">
                                 <span class="w-10 h-10 rounded-full bg-shire-gold text-shire-dark font-fantasy font-bold flex items-center justify-center text-xl shadow-md">1</span>
-                                <h3 class="font-heading text-2xl font-bold text-shire-wood">«El mundo no está en los libros y mapas. ¡Está ahí fuera!»</h3>
+                               <i> <h3 class="font-heading text-2xl font-bold text-shire-wood">«El mundo no está en los libros y mapas. ¡Está ahí fuera!»</h3></i>
                             </div>
                             <p class="text-lg text-shire-woodlight leading-relaxed">
                                 Esta historia comenzó a escribirse en 2022, allá en las tierras de Atenas. Juntos navegamos por decenas de islas griegas, conocimos a gentes venidas de todos los rincones de Europa y sumamos valiosos aliados a nuestra compañía. Al fin, decidimos compartir el mismo hogar... Sí, fue una época inolvidable, repleta de encuentros, de grandes planes y de gyros (¡y pobre de aquel que lo pronuncie "yairo", por la barba de Durin!).
@@ -288,7 +287,7 @@
                         <div class="w-full md:w-1/2 space-y-4">
                             <div class="flex items-center space-x-3">
                                 <span class="w-10 h-10 rounded-full bg-shire-gold text-shire-dark font-fantasy font-bold flex items-center justify-center text-xl shadow-md">2</span>
-                                <h3 class="font-heading text-2xl font-bold text-shire-wood">«No toda la gente errante anda perdida»</h3>
+                               <i> <h3 class="font-heading text-2xl font-bold text-shire-wood">«No toda la gente errante anda perdida»</h3></i>
                             </div>
                             <p class="text-lg text-shire-woodlight leading-relaxed">
                                 Nuestra pasión compartida por explorar el mundo nos ha llevado a descubrir lugares con los que muchos solo sueñan. Hemos cabalgado juntos hacia innumerables tierras: Bruselas, Brujas, Viena, Ksamil, Bérgamo, Bilbao, Andorra, Doha, cruzamos el gran mar hacia Buenos Aires y Venado Tuerto, y recorrimos cada rincón de Grecia... hasta que nos topamos con nuestra más grande aventura...
@@ -315,10 +314,10 @@
                         <div class="w-full md:w-1/2 space-y-4">
                             <div class="flex items-center space-x-3">
                                 <span class="w-10 h-10 rounded-full bg-shire-gold text-shire-dark font-fantasy font-bold flex items-center justify-center text-xl shadow-md">3</span>
-                                <h3 class="font-heading text-2xl font-bold text-shire-wood">«Si vuelves, no vas a ser el mismo»</h3>
+                               <i> <h3 class="font-heading text-2xl font-bold text-shire-wood">«Si vuelves, no vas a ser el mismo»</h3></i>
                             </div>
                             <p class="text-lg text-shire-woodlight leading-relaxed">
-                                ... La etapa de nuestra Work & Holidays en Australia. Nada une tanto a dos viajeros como mudarse juntos al mismísimo otro lado del planeta. Hemos trabajado muy duro, es verdad, pero también contemplamos maravillas increíbles y vivimos una experiencia irrepetible... rodeados de bichos gigantescos, por supuesto. ¡Sídney bien podría ser la ciudad más hermosa que jamás hayan visto mis ojos! Y Nueva Zelanda... ah, ese es el lugar con los mejores paisajes de toda la creación.
+                                ... La etapa de nuestra Work & Holidays en Australia. Nada une tanto a dos viajeros como mudarse juntos al mismísimo otro lado del planeta. Hemos trabajado muy duro, es verdad, pero también contemplamos maravillas increíbles y vivimos una experiencia irrepetible... rodeados de bichos gigantescos, por supuesto. ¡Sídney bien podría ser la ciudad más hermosa que jamás hayan visto nuestros ojos! Y Nueva Zelanda... ah, ese es el lugar con los mejores paisajes de toda la creación.
                             </p>
                         </div>
                     </div>
@@ -331,7 +330,7 @@
                         <div class="w-full md:w-1/2 space-y-4">
                             <div class="flex items-center space-x-3">
                                 <span class="w-10 h-10 rounded-full bg-shire-gold text-shire-dark font-fantasy font-bold flex items-center justify-center text-xl shadow-md">4</span>
-                                <h3 class="font-heading text-2xl font-bold text-shire-wood">«Prefiero compartir una vida contigo que enfrentar todas las edades de este mundo a solas»</h3>
+                               <i> <h3 class="font-heading text-2xl font-bold text-shire-wood">«Prefiero compartir una vida contigo que enfrentar todas las edades de este mundo a solas»</h3></i>
                             </div>
                             <p class="text-lg text-shire-woodlight leading-relaxed">
                                 No encontraréis en los libros de Rivendel, ni en los conjuros más antiguos de los elfos, un poder que iguale al de un auténtico beso de amor. Y os aseguro, mi querido amigo, que tal magia se agiganta cuando se sella ante un caballero que dobla su rodilla, ofreciendo un anillo de promesa y destino. ¡Preparad vuestro espíritu, pues el camino va siempre hacia adelante y la verdadera aventura apenas comienza!
@@ -479,7 +478,7 @@
             </h2>
             <div class="w-24 h-1 bg-shire-gold mx-auto"></div>
             <p class="text-lg italic text-shire-woodlight">
-                "Por favor, envía tu paloma mensajera antes del 1 de Abril de 2027"
+                Por favor, envía tu paloma mensajera antes del 1 de Abril de 2027
             </p>
         </div>
 
