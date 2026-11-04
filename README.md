@@ -236,7 +236,7 @@
                 </h2>
                 <div class="w-24 h-1 bg-shire-gold mx-auto"></div>
                 <p class="text-lg max-w-2xl mx-auto italic text-shire-woodlight">
-                    "Un viaje de mil leguas comienza con un solo paso. Haz clic en cada hito del mapa para rememorar nuestros pasajes e historia."
+                   Un viaje de mil leguas comienza con un solo paso. Acompáñanos, pues nosotros ya hemos dado unos cuantos...
                 </p>
             </div>
 
