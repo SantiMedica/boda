@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Santiago & Jenifer - Un Viaje Inesperado | Boda en La Comarca</title>
+    <title id="page-title">Santiago & Jenifer - Un Viaje Inesperado | Boda en La Comarca</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -47,14 +47,6 @@
                 radial-gradient(circle at 50% 50%, rgba(244, 235, 217, 0.9), rgba(229, 211, 179, 0.95)),
                 url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
         }
-
-        /* Fuerza a los inputs de fecha en iOS a ajustarse correctamente al contenedor */
-input[type="date"] {
-  width: 80%;
-  max-width: 80%;
-  min-width: 0;
-  box-sizing: border-box;
-}
 
         .bg-parchment-card {
             background-color: #f8f3e6;
@@ -136,24 +128,32 @@ input[type="date"] {
 
     <!-- Elemento Audio con la URL de la canción de fondo -->
     <audio id="wedding-music" loop>
-        <!-- Reemplaza la URL entre comillas con el enlace directo MP3 de tu canción favorita -->
         <source id="audio-source" src="https://mp3tourl.com/audio/1791366443143-7129d727-ef02-4a6a-8a9a-4df7a5648d80.m4a" type="audio/mpeg">
         Tu navegador no soporta el reproductor de audio.
     </audio>
 
-       <div class="fixed top-4 right-4 z-50">
-        <button id="sound-toggle" onclick="toggleAudio()" class="bg-shire-wood/90 text-shire-gold border border-shire-gold px-4 py-2 rounded-full shadow-lg hover:bg-shire-woodlight transition flex items-center space-x-2 backdrop-blur-sm">
+    <!-- Selector de Idioma (Arriba a la izquierda) -->
+    <div class="fixed top-4 left-4 z-50">
+        <button id="lang-toggle" onclick="toggleLanguage()" class="bg-shire-wood/90 text-shire-gold border border-shire-gold px-4 py-2 rounded-full shadow-lg hover:bg-shire-woodlight transition flex items-center space-x-2 backdrop-blur-sm cursor-pointer">
+            <i class="fas fa-globe text-lg"></i>
+            <span id="lang-text" class="font-fantasy text-xs font-bold tracking-wider">EN</span>
+        </button>
+    </div>
+
+    <!-- Botón de Música (Arriba a la derecha) -->
+    <div class="fixed top-4 right-4 z-50">
+        <button id="sound-toggle" onclick="toggleAudio()" class="bg-shire-wood/90 text-shire-gold border border-shire-gold px-4 py-2 rounded-full shadow-lg hover:bg-shire-woodlight transition flex items-center space-x-2 backdrop-blur-sm cursor-pointer">
             <i id="sound-icon" class="fas fa-volume-mute text-lg"></i>
             <span id="sound-text" class="font-fantasy text-xs hidden sm:inline">Música de La Comarca</span>
         </button>
     </div>
 
     <!-- HEADER ADAPTADO CON OBJECT-FIT: COVER -->
-<header class="relative w-full h-screen flex flex-col items-center justify-center text-center overflow-hidden">
+    <header class="relative w-full h-screen flex flex-col items-center justify-center text-center overflow-hidden">
 
         <img src="https://lh3.googleusercontent.com/d/1GQFrrvmTYZVgaRx1JsRZX6rTECwt8shb" alt="Santiago y Jenifer" class="absolute inset-0 w-768px h-full object-[center_60%] object-cover sm:object-cover sm:object-[center_10%] sm:w-full z-0">
 
-        <!-- Capa de oscurecimiento (Overlay) para que el texto resalte -->
+        <!-- Capa de oscurecimiento (Overlay) -->
         <div class="absolute inset-0 bg-shire-dark/25 z-0"></div>
 
         <!-- Elven Rune / Vignette Border -->
@@ -162,89 +162,89 @@ input[type="date"] {
 
         <div class="relative z-20 max-w-4xl mx-auto px-6 space-y-6 transform transition-all duration-1000">
 
-        <div class="inline-block mb-2">
-
-<div class="h-[2vh] sm:h-[5vh]"></div>
-            <span class="text-shire-gold text-3xl sm:text-3xl font-fantasy">
-                🍃 ᚨᛗᛁᚷᛟ ᛗᛁᛟ 🍃 
-            </span>
-        </div>
-
-<div class="h-[30vh] sm:h-[38vh]"></div>
-        <h1 class="font-fantasy text-4xl sm:text-3xl md:text-4xl lg:text-6xl font-extrabold text-gold-gradient tracking-wide leading-tight drop-shadow-lg">
-            Santiago
-            <span class="font-fantasy text-shire-parchment text-3xl sm:text-5xl">&</span>
-            Jenifer
-        </h1>
-
-        <h2 class="font-fantasy text-xl sm:text-2xl text-shire-parchment italic">
-            "Un Viaje Inesperado: La Boda"
-        </h2>
-
-    </div>
-
-    <div class="relative z-10 max-w-4xl mx-auto">
-
-        <h1 class="font-heading text-4xl sm:text-3xl md:text-4xl lg:text-4xl font-extrabold text-gold-gradient tracking-wide leading-tight drop-shadow-lg">
-            <span class="font-heading text-shire-parchment text-2xl sm:text-2xl">
-                29 DE MAYO DE 2027
-            </span>
-        </h1>
-
-        <p class="text-shire-parchmentDark text-lg sm:text-xl font-semibold tracking-wider">
-            • MOTRIL & SALOBREÑA •
-        </p>
-
-        <!-- Cuenta regresiva -->
-        <div id="countdown" class="grid grid-cols-4 gap-2 sm:gap-4 max-w-lg mx-auto pt-6">
-
-            <div class="bg-shire-wood/80 border border-shire-gold/60 p-1 rounded-lg backdrop-blur-md">
-                <span id="days" class="font-heading text-1xl sm:text-1xl font-bold text-shire-gold block">00</span>
-                <span class="font-fantasy text-xs sm:text-sm text-shire-parchment uppercase">Días</span>
-            </div>
-
-            <div class="bg-shire-wood/80 border border-shire-gold/60 p-1 rounded-lg backdrop-blur-md">
-                <span id="hours" class="font-heading text-1xl sm:text-1xl font-bold text-shire-gold block">00</span>
-                <span class="font-fantasy text-xs sm:text-sm text-shire-parchment uppercase">Horas</span>
-            </div>
-
-            <div class="bg-shire-wood/80 border border-shire-gold/60 p-1 rounded-lg backdrop-blur-md">
-                <span id="minutes" class="font-heading text-1xl sm:text-1xl font-bold text-shire-gold block">00</span>
-                <span class="font-fantasy text-xs sm:text-sm text-shire-parchment uppercase">Minutos</span>
-            </div>
-
-            <div class="bg-shire-wood/80 border border-shire-gold/60 p-1 rounded-lg backdrop-blur-md">
-                <span id="seconds" class="font-heading text-1xl sm:text-1xl font-bold text-shire-gold block">00</span>
-                <span class="font-fantasy text-xs sm:text-sm text-shire-parchment uppercase">Segundos</span>
-            </div>
-
-        </div>
-
-        <!-- Botón para continuar -->
-        <div class="pt-8">
-            <a href="#nuestro-camino"
-                class="inline-flex flex-col items-center text-shire-gold hover:text-white transition group">
-                <span class="font-fantasy text-sm mb-2 group-hover:translate-y-1 transition-transform">
-                    Comenzar el Viaje
+            <div class="inline-block mb-2">
+                <div class="h-[2vh] sm:h-[5vh]"></div>
+                <span class="text-shire-gold text-3xl sm:text-3xl font-fantasy">
+                    🍃 ᚨᛗᛁᚷᛟ ᛗᛁᛟ 🍃 
                 </span>
-                <i class="fas fa-chevron-down text-2xl animate-bounce"></i>
-            </a>
+            </div>
+
+            <div class="h-[30vh] sm:h-[38vh]"></div>
+            <h1 class="font-fantasy text-4xl sm:text-3xl md:text-4xl lg:text-6xl font-extrabold text-gold-gradient tracking-wide leading-tight drop-shadow-lg">
+                Santiago
+                <span class="font-fantasy text-shire-parchment text-3xl sm:text-5xl">&</span>
+                Jenifer
+            </h1>
+
+            <h2 data-i18n="heroSubtitle" class="font-fantasy text-xl sm:text-2xl text-shire-parchment italic">
+                "Un Viaje Inesperado: La Boda"
+            </h2>
+
         </div>
 
-    </div>
+        <div class="relative z-10 max-w-4xl mx-auto">
+
+            <h1 class="font-heading text-4xl sm:text-3xl md:text-4xl lg:text-4xl font-extrabold text-gold-gradient tracking-wide leading-tight drop-shadow-lg">
+                <span data-i18n="heroDate" class="font-heading text-shire-parchment text-2xl sm:text-2xl">
+                    29 DE MAYO DE 2027
+                </span>
+            </h1>
+
+            <p class="text-shire-parchmentDark text-lg sm:text-xl font-semibold tracking-wider">
+                • MOTRIL & SALOBREÑA •
+            </p>
+
+            <!-- Cuenta regresiva -->
+            <div id="countdown" class="grid grid-cols-4 gap-2 sm:gap-4 max-w-lg mx-auto pt-6">
+
+                <div class="bg-shire-wood/80 border border-shire-gold/60 p-1 rounded-lg backdrop-blur-md">
+                    <span id="days" class="font-heading text-1xl sm:text-1xl font-bold text-shire-gold block">00</span>
+                    <span data-i18n="days" class="font-fantasy text-xs sm:text-sm text-shire-parchment uppercase">Días</span>
+                </div>
+
+                <div class="bg-shire-wood/80 border border-shire-gold/60 p-1 rounded-lg backdrop-blur-md">
+                    <span id="hours" class="font-heading text-1xl sm:text-1xl font-bold text-shire-gold block">00</span>
+                    <span data-i18n="hours" class="font-fantasy text-xs sm:text-sm text-shire-parchment uppercase">Horas</span>
+                </div>
+
+                <div class="bg-shire-wood/80 border border-shire-gold/60 p-1 rounded-lg backdrop-blur-md">
+                    <span id="minutes" class="font-heading text-1xl sm:text-1xl font-bold text-shire-gold block">00</span>
+                    <span data-i18n="minutes" class="font-fantasy text-xs sm:text-sm text-shire-parchment uppercase">Minutos</span>
+                </div>
+
+                <div class="bg-shire-wood/80 border border-shire-gold/60 p-1 rounded-lg backdrop-blur-md">
+                    <span id="seconds" class="font-heading text-1xl sm:text-1xl font-bold text-shire-gold block">00</span>
+                    <span data-i18n="seconds" class="font-fantasy text-xs sm:text-sm text-shire-parchment uppercase">Segundos</span>
+                </div>
+
+            </div>
+
+            <!-- Botón para continuar -->
+            <div class="pt-8">
+                <a href="#nuestro-camino"
+                    class="inline-flex flex-col items-center text-shire-gold hover:text-white transition group">
+                    <span data-i18n="startJourney" class="font-fantasy text-sm mb-2 group-hover:translate-y-1 transition-transform">
+                        Comenzar el Viaje
+                    </span>
+                    <i class="fas fa-chevron-down text-2xl animate-bounce"></i>
+                </a>
+            </div>
+
+        </div>
     </header>
 
- <section id="nuestro-camino" class="py-20 px-4 sm:px-8 bg-parchment-texture relative">
+    <section id="nuestro-camino" class="py-20 px-4 sm:px-8 bg-parchment-texture relative">
         <div class="max-w-6xl mx-auto">
             
             <div class="text-center mb-16 space-y-3">
-                <p class="font-fantasy text-shire-ruby text-lg">El Mapa del Viajero</p>
-                <h2 class="font-heading text-3xl sm:text-5xl font-bold text-shire-wood uppercase tracking-wider">
+                <p data-i18n="mapTag" class="font-fantasy text-shire-ruby text-lg">El Mapa del Viajero</p>
+                <h2 data-i18n="mapTitle" class="font-heading text-3xl sm:text-5xl font-bold text-shire-wood uppercase tracking-wider">
                     Nuestro Camino por la Tierra Media
                 </h2>
                 <div class="w-24 h-1 bg-shire-gold mx-auto"></div>
-                <p class="text-lg max-w-2xl mx-auto italic text-shire-woodlight">
-                    Un viaje de mil leguas comienza con un solo paso. Acompáñanos, pues nosotros ya hemos dado unos cuantos...                </p>
+                <p data-i18n="mapSubtitle" class="text-lg max-w-2xl mx-auto italic text-shire-woodlight">
+                    Un viaje de mil leguas comienza con un solo paso. Acompáñanos, pues nosotros ya hemos dado unos cuantos...
+                </p>
             </div>
 
             <!-- Winding Path Timeline Container -->
@@ -252,79 +252,62 @@ input[type="date"] {
                 
                 <!-- Timeline Stops List -->
                 <div class="space-y-16 relative z-10">
-                    
-                   
 
-                    <!-- Stop 1 (Hobbiton Gallery: 4 photos) -->
+                    <!-- Stop 1 -->
                     <div class="flex flex-col md:flex-row items-center gap-8 bg-parchment-card p-6 sm:p-8 rounded-xl border-2 border-shire-parchmentBorder hover:border-shire-gold transition shadow-xl group">
                         <div class="w-full md:w-1/2 grid grid-cols-2 gap-2">
-                            <img src="https://lh3.googleusercontent.com/d/1I7xEkVJErLTK1mnZbNeQ2LAXPAzQjHjf" alt="Mykonos" class="w-full h-32 object-cover rounded-lg border border-shire-wood cursor-pointer hover:scale-105 transition" onclick="openModal('https://lh3.googleusercontent.com/d/1I7xEkVJErLTK1mnZbNeQ2LAXPAzQjHjf', 'Mykonos', 'Sábado, 30 de septiembre de 2023')">
-                            <img src="https://lh3.googleusercontent.com/d/1p1pv6yKxbE7OA2wYtZej-Crwmsk6LpF5" alt="La Comarca 2" class="w-full h-32 object-cover rounded-lg border border-shire-wood cursor-pointer hover:scale-105 transition" onclick="openModal('https://lh3.googleusercontent.com/d/1p1pv6yKxbE7OA2wYtZej-Crwmsk6LpF5', 'Santorini', 'Domingo, 17 de septiembre de 2023')">
-                            <img src="https://lh3.googleusercontent.com/d/14z-Hz1N6Pq7AjScWc_1UfodeicJhSDY4" alt="La Comarca 3" class="w-full h-32 object-cover rounded-lg border border-shire-wood cursor-pointer hover:scale-105 transition" onclick="openModal('https://lh3.googleusercontent.com/d/14z-Hz1N6Pq7AjScWc_1UfodeicJhSDY4', 'Aegina', 'Domingo, 3 de julio de 2022')">
-                            <img src="https://lh3.googleusercontent.com/d/1HnGTE7eCrznN8MDxsC8mw5AEff7HEiTd" alt="La Comarca 4" class="w-full h-32 object-cover rounded-lg border border-shire-wood cursor-pointer hover:scale-105 transition" onclick="openModal('https://lh3.googleusercontent.com/d/1HnGTE7eCrznN8MDxsC8mw5AEff7HEiTd', 'Vlaxokerasia', 'Domingo, 26 de junio de 2022')">
+                            <img src="https://lh3.googleusercontent.com/d/1I7xEkVJErLTK1mnZbNeQ2LAXPAzQjHjf" alt="Mykonos" class="w-full h-32 object-cover rounded-lg border border-shire-wood cursor-pointer hover:scale-105 transition" onclick="openPhotoModal(0)">
+                            <img src="https://lh3.googleusercontent.com/d/1p1pv6yKxbE7OA2wYtZej-Crwmsk6LpF5" alt="Santorini" class="w-full h-32 object-cover rounded-lg border border-shire-wood cursor-pointer hover:scale-105 transition" onclick="openPhotoModal(1)">
+                            <img src="https://lh3.googleusercontent.com/d/14z-Hz1N6Pq7AjScWc_1UfodeicJhSDY4" alt="Aegina" class="w-full h-32 object-cover rounded-lg border border-shire-wood cursor-pointer hover:scale-105 transition" onclick="openPhotoModal(2)">
+                            <img src="https://lh3.googleusercontent.com/d/1HnGTE7eCrznN8MDxsC8mw5AEff7HEiTd" alt="Vlaxokerasia" class="w-full h-32 object-cover rounded-lg border border-shire-wood cursor-pointer hover:scale-105 transition" onclick="openPhotoModal(3)">
                         </div>
 
                         <div class="w-full md:w-1/2 space-y-4">
                             <div class="flex items-center space-x-3">
                                 <span class="w-10 h-10 rounded-full bg-shire-gold text-shire-dark font-fantasy font-bold flex items-center justify-center text-xl shadow-md">1</span>
-                               <i> <h3 class="font-heading text-2xl font-bold text-shire-wood">«El mundo no está en los libros y mapas. ¡Está ahí fuera!»</h3></i>
+                                <i><h3 data-i18n="stop1Title" class="font-heading text-2xl font-bold text-shire-wood">«El mundo no está en los libros y mapas. ¡Está ahí fuera!»</h3></i>
                             </div>
-                            <p class="text-lg text-shire-woodlight leading-relaxed">
+                            <p data-i18n="stop1Desc" class="text-lg text-shire-woodlight leading-relaxed">
                                 Esta historia comenzó a escribirse en 2022, allá en las tierras de Atenas. Juntos navegamos por decenas de islas griegas, conocimos a gentes venidas de todos los rincones de Europa y sumamos valiosos aliados a nuestra compañía. Al fin, decidimos compartir el mismo hogar... Sí, fue una época inolvidable, repleta de encuentros, de grandes planes y de gyros (¡y pobre de aquel que lo pronuncie "yairo", por la barba de Durin!).
                             </p>
-                       
                         </div>
                     </div>
 
-
-  <div class="relative">
-                
-                <!-- Timeline Stops List -->
-                <div class="space-y-16 relative z-10">
-                               
-
-                    <!-- Stop 2 (Hobbiton Gallery: 4 photos) -->
+                    <!-- Stop 2 -->
                     <div class="flex flex-col md:flex-row items-center gap-8 bg-parchment-card p-6 sm:p-8 rounded-xl border-2 border-shire-parchmentBorder hover:border-shire-gold transition shadow-xl group">
                         <div class="w-full md:w-1/2 grid grid-cols-2 gap-2">
-                            <img src="https://lh3.googleusercontent.com/d/12J-wejQTAwzWoUMx4Ll1XjA5b794jrn4" alt="La Comarca 1" class="w-full h-32 object-cover rounded-lg border border-shire-wood cursor-pointer hover:scale-105 transition" onclick="openModal('https://lh3.googleusercontent.com/d/12J-wejQTAwzWoUMx4Ll1XjA5b794jrn4', 'Caltagirone', 'Sábado, 7 de octubre de 2023')">
-                            <img src="https://lh3.googleusercontent.com/d/15C9chvqJ0m11hEKu45KxbOfZMKY3qLMk" alt="La Comarca 2" class="w-full h-32 object-cover rounded-lg border border-shire-wood cursor-pointer hover:scale-105 transition" onclick="openModal('https://lh3.googleusercontent.com/d/15C9chvqJ0m11hEKu45KxbOfZMKY3qLMk', 'Bilbao', 'Viernes, 31 de marzo de 2023')">
-                            <img src="https://lh3.googleusercontent.com/d/1YSMbuRIjZ-bviiFphEF1xmJCHMoFBmBO" alt="La Comarca 3" class="w-full h-32 object-cover rounded-lg border border-shire-wood cursor-pointer hover:scale-105 transition" onclick="openModal('https://lh3.googleusercontent.com/d/1YSMbuRIjZ-bviiFphEF1xmJCHMoFBmBO', 'Bruselas', 'Sábado, 17 de diciembre de 2022')">
-                            <img src="https://lh3.googleusercontent.com/d/1Gi0_HLCLsM8hBFtIxFGxy6bAEHgrANR7" alt="La Comarca 4" class="w-full h-32 object-cover rounded-lg border border-shire-wood cursor-pointer hover:scale-105 transition" onclick="openModal('https://lh3.googleusercontent.com/d/1Gi0_HLCLsM8hBFtIxFGxy6bAEHgrANR7', 'Brujas', 'Viernes, 16 de diciembre de 2022')">
+                            <img src="https://lh3.googleusercontent.com/d/12J-wejQTAwzWoUMx4Ll1XjA5b794jrn4" alt="Caltagirone" class="w-full h-32 object-cover rounded-lg border border-shire-wood cursor-pointer hover:scale-105 transition" onclick="openPhotoModal(4)">
+                            <img src="https://lh3.googleusercontent.com/d/15C9chvqJ0m11hEKu45KxbOfZMKY3qLMk" alt="Bilbao" class="w-full h-32 object-cover rounded-lg border border-shire-wood cursor-pointer hover:scale-105 transition" onclick="openPhotoModal(5)">
+                            <img src="https://lh3.googleusercontent.com/d/1YSMbuRIjZ-bviiFphEF1xmJCHMoFBmBO" alt="Bruselas" class="w-full h-32 object-cover rounded-lg border border-shire-wood cursor-pointer hover:scale-105 transition" onclick="openPhotoModal(6)">
+                            <img src="https://lh3.googleusercontent.com/d/1Gi0_HLCLsM8hBFtIxFGxy6bAEHgrANR7" alt="Brujas" class="w-full h-32 object-cover rounded-lg border border-shire-wood cursor-pointer hover:scale-105 transition" onclick="openPhotoModal(7)">
                         </div>
 
                         <div class="w-full md:w-1/2 space-y-4">
                             <div class="flex items-center space-x-3">
                                 <span class="w-10 h-10 rounded-full bg-shire-gold text-shire-dark font-fantasy font-bold flex items-center justify-center text-xl shadow-md">2</span>
-                               <i> <h3 class="font-heading text-2xl font-bold text-shire-wood">«No toda la gente errante anda perdida»</h3></i>
+                                <i><h3 data-i18n="stop2Title" class="font-heading text-2xl font-bold text-shire-wood">«No toda la gente errante anda perdida»</h3></i>
                             </div>
-                            <p class="text-lg text-shire-woodlight leading-relaxed">
+                            <p data-i18n="stop2Desc" class="text-lg text-shire-woodlight leading-relaxed">
                                 Nuestra pasión compartida por explorar el mundo nos ha llevado a descubrir lugares con los que muchos solo sueñan. Hemos cabalgado juntos hacia innumerables tierras: Bruselas, Brujas, Viena, Ksamil, Bérgamo, Bilbao, Andorra, Doha, cruzamos el gran mar hacia Buenos Aires y Venado Tuerto, y recorrimos cada rincón de Grecia... hasta que nos topamos con nuestra más grande aventura...
                             </p>
-                                                 </div>
+                        </div>
                     </div>
 
-  <div class="relative">
-                
-                <!-- Timeline Stops List -->
-                <div class="space-y-16 relative z-10">
-                    
-                   
-
-                    <!-- Stop 3 (Hobbiton Gallery: 4 photos) -->
+                    <!-- Stop 3 -->
                     <div class="flex flex-col md:flex-row items-center gap-8 bg-parchment-card p-6 sm:p-8 rounded-xl border-2 border-shire-parchmentBorder hover:border-shire-gold transition shadow-xl group">
                         <div class="w-full md:w-1/2 grid grid-cols-2 gap-2">
-                            <img src="https://lh3.googleusercontent.com/d/13t9V1W9L4DkbDlM-Mg81X2c41Tiy4ZFZ" alt="Melbourne" class="w-full h-32 object-cover rounded-lg border border-shire-wood cursor-pointer hover:scale-105 transition" onclick="openModal('https://lh3.googleusercontent.com/d/13t9V1W9L4DkbDlM-Mg81X2c41Tiy4ZFZ', 'Melbourne', 'Miércoles, 25 de diciembre de 2024')">
-                            <img src="https://lh3.googleusercontent.com/d/1Rqvsd6CuOXas04W4Cvq5WlTGCcQfRnaw" alt="La Comarca 2" class="w-full h-32 object-cover rounded-lg border border-shire-wood cursor-pointer hover:scale-105 transition" onclick="openModal('https://lh3.googleusercontent.com/d/1Rqvsd6CuOXas04W4Cvq5WlTGCcQfRnaw', 'Blue Mountains', 'Jueves, 16 de julio de 2026')">
-                            <img src="https://lh3.googleusercontent.com/d/1-ZLVW2n2Yv7bXhMW7Kt0BQiNzAHo6gHH" alt="La Comarca 3" class="w-full h-32 object-cover rounded-lg border border-shire-wood cursor-pointer hover:scale-105 transition" onclick="openModal('https://lh3.googleusercontent.com/d/1-ZLVW2n2Yv7bXhMW7Kt0BQiNzAHo6gHH', 'Sydney', 'Martes, 14 de julio de 2026')">
-                            <img src="https://lh3.googleusercontent.com/d/1EiJPrPeLfbBpfO5pqkVMJ26DtQEgEg6O" alt="La Comarca 4" class="w-full h-32 object-cover rounded-lg border border-shire-wood cursor-pointer hover:scale-105 transition" onclick="openModal('https://lh3.googleusercontent.com/d/1EiJPrPeLfbBpfO5pqkVMJ26DtQEgEg6O', 'Hobbiton', 'Lunes, 20 de julio de 2026')">
+                            <img src="https://lh3.googleusercontent.com/d/13t9V1W9L4DkbDlM-Mg81X2c41Tiy4ZFZ" alt="Melbourne" class="w-full h-32 object-cover rounded-lg border border-shire-wood cursor-pointer hover:scale-105 transition" onclick="openPhotoModal(8)">
+                            <img src="https://lh3.googleusercontent.com/d/1Rqvsd6CuOXas04W4Cvq5WlTGCcQfRnaw" alt="Blue Mountains" class="w-full h-32 object-cover rounded-lg border border-shire-wood cursor-pointer hover:scale-105 transition" onclick="openPhotoModal(9)">
+                            <img src="https://lh3.googleusercontent.com/d/1-ZLVW2n2Yv7bXhMW7Kt0BQiNzAHo6gHH" alt="Sydney" class="w-full h-32 object-cover rounded-lg border border-shire-wood cursor-pointer hover:scale-105 transition" onclick="openPhotoModal(10)">
+                            <img src="https://lh3.googleusercontent.com/d/1EiJPrPeLfbBpfO5pqkVMJ26DtQEgEg6O" alt="Hobbiton" class="w-full h-32 object-cover rounded-lg border border-shire-wood cursor-pointer hover:scale-105 transition" onclick="openPhotoModal(11)">
                         </div>
 
                         <div class="w-full md:w-1/2 space-y-4">
                             <div class="flex items-center space-x-3">
                                 <span class="w-10 h-10 rounded-full bg-shire-gold text-shire-dark font-fantasy font-bold flex items-center justify-center text-xl shadow-md">3</span>
-                               <i> <h3 class="font-heading text-2xl font-bold text-shire-wood">«Si vuelves, no vas a ser el mismo»</h3></i>
+                                <i><h3 data-i18n="stop3Title" class="font-heading text-2xl font-bold text-shire-wood">«Si vuelves, no vas a ser el mismo»</h3></i>
                             </div>
-                            <p class="text-lg text-shire-woodlight leading-relaxed">
+                            <p data-i18n="stop3Desc" class="text-lg text-shire-woodlight leading-relaxed">
                                 ... La etapa de nuestra Work & Holidays en Australia. Nada une tanto a dos viajeros como mudarse juntos al mismísimo otro lado del planeta. Hemos trabajado muy duro, es verdad, pero también contemplamos maravillas increíbles y vivimos una experiencia irrepetible... rodeados de bichos gigantescos, por supuesto. ¡Sídney bien podría ser la ciudad más hermosa que jamás hayan visto nuestros ojos! Y Nueva Zelanda... ah, ese es el lugar con los mejores paisajes de toda la creación.
                             </p>
                         </div>
@@ -332,18 +315,17 @@ input[type="date"] {
 
                     <!-- Stop 4 -->
                     <div class="flex flex-col md:flex-row-reverse items-center gap-8 bg-parchment-card p-6 sm:p-8 rounded-xl border-2 border-shire-parchmentBorder hover:border-shire-gold transition shadow-xl group">
-                        <div class="w-full md:w-1/2 overflow-hidden rounded-lg border-4 border-shire-wood cursor-pointer" onclick="openModal('https://lh3.googleusercontent.com/d/1X9x2dbw8tLLj0NqNDfVUMWqGX6o1By9q', 'Patras', 'Domingo, 26 de febrero de 2023')">
+                        <div class="w-full md:w-1/2 overflow-hidden rounded-lg border-4 border-shire-wood cursor-pointer" onclick="openPhotoModal(12)">
                             <img src="https://lh3.googleusercontent.com/d/1X9x2dbw8tLLj0NqNDfVUMWqGX6o1By9q" alt="Hechizo de Amor" class="w-full h-64 sm:h-80 object-cover group-hover:scale-105 transition duration-500">
                         </div>
                         <div class="w-full md:w-1/2 space-y-4">
                             <div class="flex items-center space-x-3">
                                 <span class="w-10 h-10 rounded-full bg-shire-gold text-shire-dark font-fantasy font-bold flex items-center justify-center text-xl shadow-md">4</span>
-                               <i> <h3 class="font-heading text-2xl font-bold text-shire-wood">«Prefiero compartir una vida contigo que enfrentar todas las edades de este mundo a solas»</h3></i>
+                                <i><h3 data-i18n="stop4Title" class="font-heading text-2xl font-bold text-shire-wood">«Prefiero compartir una vida contigo que enfrentar todas las edades de este mundo a solas»</h3></i>
                             </div>
-                            <p class="text-lg text-shire-woodlight leading-relaxed">
+                            <p data-i18n="stop4Desc" class="text-lg text-shire-woodlight leading-relaxed">
                                 No encontraréis en los libros de Rivendel, ni en los conjuros más antiguos de los elfos, un poder que iguale al de un auténtico beso de amor. Y os aseguro, mi querido amigo, que tal magia se agiganta cuando se sella ante un caballero que dobla su rodilla, ofreciendo un anillo de promesa y destino. ¡Preparad vuestro espíritu, pues el camino va siempre hacia adelante y la verdadera aventura apenas comienza!
                             </p>
-
                         </div>
                     </div>
 
@@ -361,12 +343,12 @@ input[type="date"] {
         <div class="max-w-6xl mx-auto">
             
             <div class="text-center mb-16 space-y-3">
-                <p class="font-fantasy text-shire-gold text-lg">Guía de Destinos</p>
-                <h2 class="font-heading text-3xl sm:text-5xl font-bold text-gold-gradient uppercase tracking-wider">
+                <p data-i18n="placesTag" class="font-fantasy text-shire-gold text-lg">Guía de Destinos</p>
+                <h2 data-i18n="placesTitle" class="font-heading text-3xl sm:text-5xl font-bold text-gold-gradient uppercase tracking-wider">
                     Los Lugares del Reino
                 </h2>
                 <div class="w-24 h-1 bg-shire-gold mx-auto"></div>
-                <p class="text-lg max-w-2xl mx-auto italic text-shire-parchmentDark">
+                <p data-i18n="placesSubtitle" class="text-lg max-w-2xl mx-auto italic text-shire-parchmentDark">
                     Dos enclaves sagrados para dos momentos inolvidables de la jornada
                 </p>
             </div>
@@ -377,10 +359,10 @@ input[type="date"] {
                 <div class="bg-shire-woodlight/80 border-2 border-shire-gold rounded-xl p-8 space-y-6 shadow-2xl relative flex flex-col justify-between hover:border-white transition">
                     <div class="space-y-4">
                         <div class="flex items-center justify-between border-b border-shire-gold/30 pb-4">
-                            <span class="font-fantasy text-shire-gold text-sm tracking-widest uppercase">Etapa I • La Ceremonia</span>
+                            <span data-i18n="stage1Tag" class="font-fantasy text-shire-gold text-sm tracking-widest uppercase">Etapa I • La Ceremonia</span>
                             <i class="fas fa-church text-shire-gold text-2xl"></i>
                         </div>
-                        <h3 class="font-heading text-2xl sm:text-3xl font-bold text-white">Santuario de Ntra. Sra. de la Cabeza (Iglesia del Cerro)</h3>
+                        <h3 data-i18n="stage1Title" class="font-heading text-2xl sm:text-3xl font-bold text-white">Santuario de Ntra. Sra. de la Cabeza (Iglesia del Cerro)</h3>
                                                
                         <div class="space-y-3 text-shire-parchmentDark text-lg">
                             <p class="flex items-center space-x-3">
@@ -391,7 +373,7 @@ input[type="date"] {
                                 <i class="fas fa-map-marker-alt text-shire-gold w-6"></i>
                                 <span>Av. Ntra. Sra. de la Cabeza, 13, 18600 Motril, Granada</span>
                             </p>
-                            <p class="pt-2 text-base italic leading-relaxed text-shire-parchment/80">
+                            <p data-i18n="stage1Desc" class="pt-2 text-base italic leading-relaxed text-shire-parchment/80">
                                 Allá en lo alto del vetusto cerro de Motril, donde los aires del mar abrazan las piedras milenarias, uniremos nuestros destinos bajo la bendición de los Poderes de la Tierra.
                             </p>
                         </div>
@@ -400,7 +382,7 @@ input[type="date"] {
                     <div class="pt-6">
                         <a href="https://maps.google.com/?q=Iglesia+del+Cerro+de+Motril" target="_blank" class="w-full bg-shire-gold hover:bg-shire-goldBright text-shire-dark font-fantasy font-bold py-3 px-6 rounded-lg transition text-center flex items-center justify-center space-x-2 shadow-lg">
                             <i class="fas fa-compass"></i>
-                            <span>Mapa del Navegante (Google Maps)</span>
+                            <span data-i18n="mapBtn">Mapa del Navegante (Google Maps)</span>
                         </a>
                     </div>
                 </div>
@@ -409,22 +391,21 @@ input[type="date"] {
                 <div class="bg-shire-woodlight/80 border-2 border-shire-gold rounded-xl p-8 space-y-6 shadow-2xl relative flex flex-col justify-between hover:border-white transition">
                     <div class="space-y-4">
                         <div class="flex items-center justify-between border-b border-shire-gold/30 pb-4">
-                            <span class="font-fantasy text-shire-gold text-sm tracking-widest uppercase">Etapa II • El viaje</span>
+                            <span data-i18n="stage2Tag" class="font-fantasy text-shire-gold text-sm tracking-widest uppercase">Etapa II • El viaje</span>
                             <i class="fas fa-bus text-shire-gold text-2xl"></i>
                         </div>
-                        <h3 class="font-heading text-2xl sm:text-3xl font-bold text-white">Transporte al banquete</h3>
-                       
+                        <h3 data-i18n="stage2Title" class="font-heading text-2xl sm:text-3xl font-bold text-white">Transporte al banquete</h3>
                         
                         <div class="space-y-3 text-shire-parchmentDark text-lg">
                             <p class="flex items-center space-x-3">
                                 <i class="far fa-clock text-shire-gold w-6"></i>
-                                <span>A determinar</span>
+                                <span data-i18n="stage2Time">A determinar</span>
                             </p>
                             <p class="flex items-center space-x-3">
                                 <i class="fas fa-map-marker-alt text-shire-gold w-6"></i>
-                                <span>Parque de las Americas (Provisional)</span>
+                                <span data-i18n="stage2Loc">Parque de las Americas (Provisional)</span>
                             </p>
-                            <p class="pt-2 text-base italic leading-relaxed text-shire-parchment/80">
+                            <p data-i18n="stage2Desc" class="pt-2 text-base italic leading-relaxed text-shire-parchment/80">
                                 Quienes necesiten transporte para alcanzar la gran fiesta, no teman: un carruaje de hierro aguardará a la comunidad para conducirlos seguros al festín.
                             </p>
                         </div>
@@ -433,7 +414,7 @@ input[type="date"] {
                     <div class="pt-6">
                         <a href="https://maps.app.goo.gl/5PkhtanPxTgNNvSs9" target="_blank" class="w-full bg-shire-gold hover:bg-shire-goldBright text-shire-dark font-fantasy font-bold py-3 px-6 rounded-lg transition text-center flex items-center justify-center space-x-2 shadow-lg">
                             <i class="fas fa-compass"></i>
-                            <span>Mapa del Navegante (Google Maps)</span>
+                            <span data-i18n="mapBtn">Mapa del Navegante (Google Maps)</span>
                         </a>
                     </div>
                 </div>
@@ -442,22 +423,21 @@ input[type="date"] {
                 <div class="bg-shire-woodlight/80 border-2 border-shire-gold rounded-xl p-8 space-y-6 shadow-2xl relative flex flex-col justify-between hover:border-white transition">
                     <div class="space-y-4">
                         <div class="flex items-center justify-between border-b border-shire-gold/30 pb-4">
-                            <span class="font-fantasy text-shire-gold text-sm tracking-widest uppercase">Etapa III • El Banquete</span>
+                            <span data-i18n="stage3Tag" class="font-fantasy text-shire-gold text-sm tracking-widest uppercase">Etapa III • El Banquete</span>
                             <i class="fas fa-glass-cheers text-shire-gold text-2xl"></i>
                         </div>
                         <h3 class="font-heading text-2xl sm:text-3xl font-bold text-white">Hotel Salobreña</h3>
-                       
                         
                         <div class="space-y-3 text-shire-parchmentDark text-lg">
                             <p class="flex items-center space-x-3">
                                 <i class="far fa-clock text-shire-gold w-6"></i>
-                                <span>18:30 h (Provisional)</span>
+                                <span data-i18n="stage3Time">18:30 h (Provisional)</span>
                             </p>
                             <p class="flex items-center space-x-3">
                                 <i class="fas fa-map-marker-alt text-shire-gold w-6"></i>
                                 <span>Carretera N-340, Km 323, Salobreña, Granada</span>
                             </p>
-                            <p class="pt-2 text-base italic leading-relaxed text-shire-parchment/80">
+                            <p data-i18n="stage3Desc" class="pt-2 text-base italic leading-relaxed text-shire-parchment/80">
                                 Frente al acantilado y el mar Mediterráneo, disfrutaremos del banquete de Hobbits y Elfos, música, bailes hasta el amanecer y muchas sorpresas.
                             </p>
                         </div>
@@ -466,7 +446,7 @@ input[type="date"] {
                     <div class="pt-6">
                         <a href="https://maps.google.com/?q=Hotel+Salobrena" target="_blank" class="w-full bg-shire-gold hover:bg-shire-goldBright text-shire-dark font-fantasy font-bold py-3 px-6 rounded-lg transition text-center flex items-center justify-center space-x-2 shadow-lg">
                             <i class="fas fa-compass"></i>
-                            <span>Mapa del Navegante (Google Maps)</span>
+                            <span data-i18n="mapBtn">Mapa del Navegante (Google Maps)</span>
                         </a>
                     </div>
                 </div>
@@ -476,196 +456,197 @@ input[type="date"] {
         </div>
     </section>
 
-<section id="rsvp" class="py-20 px-4 sm:px-8 bg-parchment-texture relative">
-    <div class="max-w-3xl mx-auto">
-        
-        <div class="text-center mb-12 space-y-3">
-            <p class="font-fantasy text-shire-ruby text-lg">Decreto Real de Asistencia</p>
-            <h2 class="font-heading text-3xl sm:text-5xl font-bold text-shire-wood uppercase tracking-wider">
-                Juramento de presencia
-            </h2>
-            <div class="w-24 h-1 bg-shire-gold mx-auto"></div>
-            <p class="text-lg italic text-shire-woodlight">
-                Por favor, envía tu paloma mensajera antes del 1 de Abril de 2027
-            </p>
-        </div>
-
-        <!-- Scroll Form Card -->
-        <div class="bg-parchment-card p-6 sm:p-10 rounded-2xl border-4 border-shire-parchmentBorder shadow-2xl relative">
+    <section id="rsvp" class="py-20 px-4 sm:px-8 bg-parchment-texture relative">
+        <div class="max-w-3xl mx-auto">
             
-            <form id="rsvp-form" onsubmit="handleRSVP(event)" class="space-y-6">
-                <!-- 1. Nombre Principal (Obligatorio) -->
-                <div>
-                    <label class="block font-fantasy text-shire-wood text-lg mb-2" for="guest-name">
-                        <i class="fas fa-user-edit text-shire-ruby mr-2"></i> ¡Que estallen las presentaciones! Escribe aquí tu nombre completo. (*)
-                    </label>
-                    <input type="text" id="guest-name" name="guest_name" required placeholder="Ej: Frodo Bolsón" class="w-full bg-white/80 border-2 border-shire-parchmentBorder rounded-lg px-4 py-3 text-shire-wood font-body text-lg focus:outline-none focus:border-shire-gold">
-                </div>
+            <div class="text-center mb-12 space-y-3">
+                <p data-i18n="rsvpTag" class="font-fantasy text-shire-ruby text-lg">Decreto Real de Asistencia</p>
+                <h2 data-i18n="rsvpTitle" class="font-heading text-3xl sm:text-5xl font-bold text-shire-wood uppercase tracking-wider">
+                    Juramento de presencia
+                </h2>
+                <div class="w-24 h-1 bg-shire-gold mx-auto"></div>
+                <p data-i18n="rsvpSubtitle" class="text-lg italic text-shire-woodlight">
+                    Por favor, envía tu paloma mensajera antes del 1 de Abril de 2027
+                </p>
+            </div>
 
-                <!-- 2. Confirmación de Asistencia (Obligatorio) -->
-                <div>
-                    <label class="block font-fantasy text-shire-wood text-lg mb-2">
-                        <i class="fas fa-check-circle text-shire-ruby mr-2"></i> Las estrellas presagian una gran reunión. ¿Acudirás a la llamada cuando se enciendan las almenaras, o rehuirás la celebración? (*)
-                    </label>
-                    <div class="space-y-3">
-                        <label class="flex items-start gap-3 p-3 bg-white/80 border-2 border-shire-parchmentBorder rounded-lg cursor-pointer hover:border-shire-gold transition-colors">
-                            <input type="radio" name="attendance" value="Si" required class="mt-1.5 text-shire-gold focus:ring-shire-gold">
-                            <span><strong>Sí, asistiré:</strong> Un mago nunca llega tarde, ni pronto; llega exactamente cuando se lo propone. ¡Allí estaré!</span>
-                        </label>
-                        <label class="flex items-start gap-3 p-3 bg-white/80 border-2 border-shire-parchmentBorder rounded-lg cursor-pointer hover:border-shire-gold transition-colors">
-                            <input type="radio" name="attendance" value="No" required class="mt-1.5 text-shire-gold focus:ring-shire-gold">
-                            <span><strong>No podré asistir:</strong> Mis pasos me llevan por senderos urgentes y oscuros lejos de aquí, pero os deseo toda la felicidad en vuestro viaje.</span>
-                        </label>
-                    </div>
-                </div>
-
-                <!-- 3. Acompañantes Adultos (Opcional) -->
-                <div>
-                    <label class="block font-fantasy text-shire-wood text-lg mb-2" for="companions">
-                        <i class="fas fa-users text-shire-ruby mr-2"></i> ¿Asistirán contigo otros aliados en esta celebración, o vaga tu alma en el aislamiento de un errante de las tierras salvajes? Dinos sus nombres.
-                    </label>
-                    <input type="text" id="companions" name="companions" placeholder="Ej: Aragorn y Legolas" class="w-full bg-white/80 border-2 border-shire-parchmentBorder rounded-lg px-4 py-3 text-shire-wood font-body text-lg focus:outline-none focus:border-shire-gold">
-                </div>
-
-                <!-- 4. Niños (Opcional) -->
-                <div>
-                    <label class="block font-fantasy text-shire-wood text-lg mb-2" for="children">
-                        <i class="fas fa-child text-shire-ruby mr-2"></i> ¿Te acompañan pequeños medianos en esta jornada? Desvela sus nombres y los inviernos que han contemplado.
-                    </label>
-                    <input type="text" id="children" name="children" placeholder="Ej: Andrés - 7 años" class="w-full bg-white/80 border-2 border-shire-parchmentBorder rounded-lg px-4 py-3 text-shire-wood font-body text-lg focus:outline-none focus:border-shire-gold">
-                </div>
-
-                <!-- 5. Menú y Alergias (Obligatorio el selector) -->
-                <div>
-                    <label class="block font-fantasy text-shire-wood text-lg mb-2" for="diet">
-                        <i class="fas fa-utensils text-shire-ruby mr-2"></i> Hay venenos sutiles que nublan el festín y hierbas que no todos los estómagos toleran. Dinos si tenéis alguna preferencia o si algún alimento os causa debilidad: (*)
-                    </label>
-                    
-                    <select id="diet" name="diet" required class="w-full bg-white/80 border-2 border-shire-parchmentBorder rounded-lg px-4 py-3 text-shire-wood font-body text-lg focus:outline-none focus:border-shire-gold">
-                        <option value="" disabled selected>Selecciona tu tipo de menú...</option>
-                        <option value="Estándar">Menú Estándar de La Comarca</option>
-                        <option value="Vegetariano">Menú Vegetariano de Rivendel</option>
-                        <option value="Vegano">Menú Vegano de Lorien</option>
-                        <option value="Alergias">Alergias / Intolerancias (Especificar abajo)</option>
-                    </select>
-
-                    <div id="allergies-container" class="mt-3 hidden">
-                        <label for="allergies-details" class="block font-fantasy text-shire-wood text-sm mb-1">
-                            <i class="fas fa-exclamation-triangle text-shire-ruby mr-1"></i> Especifica tus alergias o intolerancias: (*)
-                        </label>
-                        <textarea 
-                            id="allergies-details" 
-                            name="allergies_details" 
-                            rows="3" 
-                            placeholder="Ejemplo: Intolerancia a la lactosa, alergia a los frutos secos..." 
-                            class="w-full bg-white/80 border-2 border-shire-parchmentBorder rounded-lg px-4 py-2 text-shire-wood font-body text-base focus:outline-none focus:border-shire-gold placeholder:text-shire-wood/50 resize-y"
-                        ></textarea>
-                    </div>
-                </div>
-
-                <!-- 6. Autobús / Caravana (Obligatorio) -->
-                <div>
-                    <label class="block font-fantasy text-shire-wood text-lg mb-3">
-                        <i class="fas fa-bus text-shire-ruby mr-2"></i> Los caballos no bastarán para trasladar a todo el ejército desde el santuario hasta el gran salón de banquetes. Una gran caravana de hierro será dispuesta para el traslado. ¿Os uniréis a ella o confiaréis vuestro viaje a vuestra propia montura? (*)
-                    </label>
-
-                    <div class="space-y-3">
-                        <label class="flex items-start gap-3 p-3 bg-white/80 border-2 border-shire-parchmentBorder rounded-lg cursor-pointer hover:border-shire-gold transition-colors">
-                            <input type="radio" name="bus_option" value="No" required class="mt-1.5 text-shire-gold focus:ring-shire-gold">
-                            <span><strong>No precisaré caravana:</strong> No, mi buen amigo. Seguiré mi propio camino, como un auténtico montaraz.</span>
-                        </label>
-                        <label class="flex items-start gap-3 p-3 bg-white/80 border-2 border-shire-parchmentBorder rounded-lg cursor-pointer hover:border-shire-gold transition-colors">
-                            <input type="radio" name="bus_option" value="Solo ida" required class="mt-1.5 text-shire-gold focus:ring-shire-gold">
-                            <span><strong>Solo ida:</strong> Iré en la caravana hacia el banquete, pero tengo mis propios planes para el final de los festejos.</span>
-                        </label>
-                        <label class="flex items-start gap-3 p-3 bg-white/80 border-2 border-shire-parchmentBorder rounded-lg cursor-pointer hover:border-shire-gold transition-colors">
-                            <input type="radio" name="bus_option" value="Solo vuelta" required class="mt-1.5 text-shire-gold focus:ring-shire-gold">
-                            <span><strong>Solo vuelta:</strong> Llegaré al templo por mis propios medios, pero cuando la noche caiga y el cansancio pese, me uniré a vuestra caravana.</span>
-                        </label>
-                        <label class="flex items-start gap-3 p-3 bg-white/80 border-2 border-shire-parchmentBorder rounded-lg cursor-pointer hover:border-shire-gold transition-colors">
-                            <input type="radio" name="bus_option" value="Ida y vuelta" required class="mt-1.5 text-shire-gold focus:ring-shire-gold">
-                            <span><strong>Ida y vuelta:</strong> ¡Contad conmigo para todo el viaje! No pienso perderme ni un solo tramo de esta gran aventura.</span>
-                        </label>
-                    </div>
-                </div>
-
-                <!-- 7. Hotel (Fechas) - Opcional -->
-                <div>
-                    <label class="block font-fantasy text-shire-wood text-lg mb-2">
-                        <i class="fas fa-hotel text-shire-ruby mr-2"></i> ¿Vas a necesitar habitación en la posada del banquete? Tras tantos brindis y bailes, hasta el más sabio de los magos necesita un buen jergón donde caer rendido. Dinos si te quedarás a pasar la noche en los aposentos del propio recinto o si tu camino te llevará de vuelta a casa antes del amanecer.
-                    </label>
-                    
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div>
-                            <label for="date-from" class="block font-fantasy text-shire-wood text-sm mb-1">Llegada al festín:</label>
-                            <input 
-                                type="date" 
-                                id="date-from" 
-                                name="date_from"
-                                min="2027-05-03"
-                                max="2027-05-29"
-                                class="w-full bg-white/80 border-2 border-shire-parchmentBorder rounded-lg px-4 py-3 text-shire-wood font-body text-lg focus:outline-none focus:border-shire-gold"
-                            >
-                        </div>
-                        <div>
-                            <label for="date-to" class="block font-fantasy text-shire-wood text-sm mb-1">Regreso al hogar:</label>
-                            <input 
-                                type="date" 
-                                id="date-to" 
-                                name="date_to"
-                                min="2027-05-30"
-                                max="2027-06-07"
-                                class="w-full bg-white/80 border-2 border-shire-parchmentBorder rounded-lg px-4 py-3 text-shire-wood font-body text-lg focus:outline-none focus:border-shire-gold"
-                            >
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 8. Canción (Opcional) -->
-                <div>
-                    <label class="block font-fantasy text-shire-wood text-lg mb-2" for="song-request">
-                        <i class="fas fa-music text-shire-ruby mr-2"></i> Ni los elfos en sus bosques ni los enanos en sus salones celebran sin música. Escribe aquí un tema que sacudirá la Tierra Media.
-                    </label>
-                    <input type="text" id="song-request" name="song_request" placeholder="Ej: Ave Maria / Torero / Ops I did it again / YMCM / Breaking Free..." class="w-full bg-white/80 border-2 border-shire-parchmentBorder rounded-lg px-4 py-3 text-shire-wood font-body text-lg focus:outline-none focus:border-shire-gold">
-                </div>
-
-                <!-- 9. Mensaje (Opcional) -->
-                <div>
-                    <label class="block font-fantasy text-shire-wood text-lg mb-2" for="message">
-                        <i class="fas fa-scroll text-shire-ruby mr-2"></i> Palabras o bendiciones para los novios:
-                    </label>
-                    <textarea id="message" name="message" rows="3" placeholder="Escribe aquí tu mensaje de buenos augurios..." class="w-full bg-white/80 border-2 border-shire-parchmentBorder rounded-lg px-4 py-3 text-shire-wood font-body text-lg focus:outline-none focus:border-shire-gold"></textarea>
-                </div>
+            <!-- Scroll Form Card -->
+            <div class="bg-parchment-card p-6 sm:p-10 rounded-2xl border-4 border-shire-parchmentBorder shadow-2xl relative">
                 
-                <label class="block font-fantasy text-shire-wood text-xs mb-2"> * Campo obligatorio. Si falta información marcada con asterisco, serás redirigido a ese campo de nuevo. </label>
+                <form id="rsvp-form" onsubmit="handleRSVP(event)" class="space-y-6">
+                    <!-- 1. Nombre Principal (Obligatorio) -->
+                    <div>
+                        <label class="block font-fantasy text-shire-wood text-lg mb-2" for="guest-name">
+                            <i class="fas fa-user-edit text-shire-ruby mr-2"></i> <span data-i18n="q1Label">¡Que estallen las presentaciones! Escribe aquí tu nombre completo. (*)</span>
+                        </label>
+                        <input type="text" id="guest-name" name="guest_name" required data-i18n-placeholder="q1Placeholder" placeholder="Ej: Frodo Bolsón" class="w-full bg-white/80 border-2 border-shire-parchmentBorder rounded-lg px-4 py-3 text-shire-wood font-body text-lg focus:outline-none focus:border-shire-gold">
+                    </div>
 
-                <!-- Botón Enviar -->
-                <div class="text-center pt-4">
-                    <button type="submit" class="wax-seal text-white font-fantasy text-xl px-10 py-4 rounded-full transition duration-300 transform inline-flex items-center space-x-3 cursor-pointer hover:scale-105">
-                        <i class="fas fa-stamp text-2xl"></i>
-                        <span>Sellar Decreto de Asistencia</span>
+                    <!-- 2. Confirmación de Asistencia (Obligatorio) -->
+                    <div>
+                        <label class="block font-fantasy text-shire-wood text-lg mb-2">
+                            <i class="fas fa-check-circle text-shire-ruby mr-2"></i> <span data-i18n="q2Label">Las estrellas presagian una gran reunión. ¿Acudirás a la llamada cuando se enciendan las almenaras, o rehuirás la celebración? (*)</span>
+                        </label>
+                        <div class="space-y-3">
+                            <label class="flex items-start gap-3 p-3 bg-white/80 border-2 border-shire-parchmentBorder rounded-lg cursor-pointer hover:border-shire-gold transition-colors">
+                                <input type="radio" name="attendance" value="Si" required class="mt-1.5 text-shire-gold focus:ring-shire-gold">
+                                <span data-i18n-html="q2Yes"><strong>Sí, asistiré:</strong> Un mago nunca llega tarde, ni pronto; llega exactamente cuando se lo propone. ¡Allí estaré!</span>
+                            </label>
+                            <label class="flex items-start gap-3 p-3 bg-white/80 border-2 border-shire-parchmentBorder rounded-lg cursor-pointer hover:border-shire-gold transition-colors">
+                                <input type="radio" name="attendance" value="No" required class="mt-1.5 text-shire-gold focus:ring-shire-gold">
+                                <span data-i18n-html="q2No"><strong>No podré asistir:</strong> Mis pasos me llevan por senderos urgentes y oscuros lejos de aquí, pero os deseo toda la felicidad en vuestro viaje.</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- 3. Acompañantes Adultos (Opcional) -->
+                    <div>
+                        <label class="block font-fantasy text-shire-wood text-lg mb-2" for="companions">
+                            <i class="fas fa-users text-shire-ruby mr-2"></i> <span data-i18n="q3Label">¿Asistirán contigo otros aliados en esta celebración, o vaga tu alma en el aislamiento de un errante de las tierras salvajes? Dinos sus nombres.</span>
+                        </label>
+                        <input type="text" id="companions" name="companions" data-i18n-placeholder="q3Placeholder" placeholder="Ej: Aragorn y Legolas" class="w-full bg-white/80 border-2 border-shire-parchmentBorder rounded-lg px-4 py-3 text-shire-wood font-body text-lg focus:outline-none focus:border-shire-gold">
+                    </div>
+
+                    <!-- 4. Niños (Opcional) -->
+                    <div>
+                        <label class="block font-fantasy text-shire-wood text-lg mb-2" for="children">
+                            <i class="fas fa-child text-shire-ruby mr-2"></i> <span data-i18n="q4Label">¿Te acompañan pequeños medianos en esta jornada? Desvela sus nombres y los inviernos que han contemplado.</span>
+                        </label>
+                        <input type="text" id="children" name="children" data-i18n-placeholder="q4Placeholder" placeholder="Ej: Andrés - 7 años" class="w-full bg-white/80 border-2 border-shire-parchmentBorder rounded-lg px-4 py-3 text-shire-wood font-body text-lg focus:outline-none focus:border-shire-gold">
+                    </div>
+
+                    <!-- 5. Menú y Alergias (Obligatorio el selector) -->
+                    <div>
+                        <label class="block font-fantasy text-shire-wood text-lg mb-2" for="diet">
+                            <i class="fas fa-utensils text-shire-ruby mr-2"></i> <span data-i18n="q5Label">Hay venenos sutiles que nublan el festín y hierbas que no todos los estómagos toleran. Dinos si tenéis alguna preferencia o si algún alimento os causa debilidad: (*)</span>
+                        </label>
+                        
+                        <select id="diet" name="diet" required class="w-full bg-white/80 border-2 border-shire-parchmentBorder rounded-lg px-4 py-3 text-shire-wood font-body text-lg focus:outline-none focus:border-shire-gold">
+                            <option value="" disabled selected data-i18n="dietDefault">Selecciona tu tipo de menú...</option>
+                            <option value="Estándar" data-i18n="dietStandard">Menú Estándar de La Comarca</option>
+                            <option value="Vegetariano" data-i18n="dietVeg">Menú Vegetariano de Rivendel</option>
+                            <option value="Vegano" data-i18n="dietVegan">Menú Vegano de Lorien</option>
+                            <option value="Alergias" data-i18n="dietAllergies">Alergias / Intolerancias (Especificar abajo)</option>
+                        </select>
+
+                        <div id="allergies-container" class="mt-3 hidden">
+                            <label for="allergies-details" class="block font-fantasy text-shire-wood text-sm mb-1">
+                                <i class="fas fa-exclamation-triangle text-shire-ruby mr-1"></i> <span data-i18n="allergiesLabel">Especifica tus alergias o intolerancias: (*)</span>
+                            </label>
+                            <textarea 
+                                id="allergies-details" 
+                                name="allergies_details" 
+                                rows="3" 
+                                data-i18n-placeholder="allergiesPlaceholder"
+                                placeholder="Ejemplo: Intolerancia a la lactosa, alergia a los frutos secos..." 
+                                class="w-full bg-white/80 border-2 border-shire-parchmentBorder rounded-lg px-4 py-2 text-shire-wood font-body text-base focus:outline-none focus:border-shire-gold placeholder:text-shire-wood/50 resize-y"
+                            ></textarea>
+                        </div>
+                    </div>
+
+                    <!-- 6. Autobús / Caravana (Obligatorio) -->
+                    <div>
+                        <label class="block font-fantasy text-shire-wood text-lg mb-3">
+                            <i class="fas fa-bus text-shire-ruby mr-2"></i> <span data-i18n="q6Label">Los caballos no bastarán para trasladar a todo el ejército desde el santuario hasta el gran salón de banquetes. Una gran caravana de hierro será dispuesta para el traslado. ¿Os uniréis a ella o confiaréis vuestro viaje a vuestra propia montura? (*)</span>
+                        </label>
+
+                        <div class="space-y-3">
+                            <label class="flex items-start gap-3 p-3 bg-white/80 border-2 border-shire-parchmentBorder rounded-lg cursor-pointer hover:border-shire-gold transition-colors">
+                                <input type="radio" name="bus_option" value="No" required class="mt-1.5 text-shire-gold focus:ring-shire-gold">
+                                <span data-i18n-html="busNo"><strong>No precisaré caravana:</strong> No, mi buen amigo. Seguiré mi propio camino, como un auténtico montaraz.</span>
+                            </label>
+                            <label class="flex items-start gap-3 p-3 bg-white/80 border-2 border-shire-parchmentBorder rounded-lg cursor-pointer hover:border-shire-gold transition-colors">
+                                <input type="radio" name="bus_option" value="Solo ida" required class="mt-1.5 text-shire-gold focus:ring-shire-gold">
+                                <span data-i18n-html="busOneWay"><strong>Solo ida:</strong> Iré en la caravana hacia el banquete, pero tengo mis propios planes para el final de los festejos.</span>
+                            </label>
+                            <label class="flex items-start gap-3 p-3 bg-white/80 border-2 border-shire-parchmentBorder rounded-lg cursor-pointer hover:border-shire-gold transition-colors">
+                                <input type="radio" name="bus_option" value="Solo vuelta" required class="mt-1.5 text-shire-gold focus:ring-shire-gold">
+                                <span data-i18n-html="busReturn"><strong>Solo vuelta:</strong> Llegaré al templo por mis propios medios, pero cuando la noche caiga y el cansancio pese, me uniré a vuestra caravana.</span>
+                            </label>
+                            <label class="flex items-start gap-3 p-3 bg-white/80 border-2 border-shire-parchmentBorder rounded-lg cursor-pointer hover:border-shire-gold transition-colors">
+                                <input type="radio" name="bus_option" value="Ida y vuelta" required class="mt-1.5 text-shire-gold focus:ring-shire-gold">
+                                <span data-i18n-html="busRoundTrip"><strong>Ida y vuelta:</strong> ¡Contad conmigo para todo el viaje! No pienso perderme ni un solo tramo de esta gran aventura.</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- 7. Hotel (Fechas) - Opcional -->
+                    <div>
+                        <label class="block font-fantasy text-shire-wood text-lg mb-2">
+                            <i class="fas fa-hotel text-shire-ruby mr-2"></i> <span data-i18n="q7Label">¿Vas a necesitar habitación en la posada del banquete? Tras tantos brindis y bailes, hasta el más sabio de los magos necesita un buen jergón donde caer rendido. Dinos si te quedarás a pasar la noche en los aposentos del propio recinto o si tu camino te llevará de vuelta a casa antes del amanecer.</span>
+                        </label>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label data-i18n="dateFromLabel" for="date-from" class="block font-fantasy text-shire-wood text-sm mb-1">Llegada al festín:</label>
+                                <input 
+                                    type="date" 
+                                    id="date-from" 
+                                    name="date_from"
+                                    min="2027-05-03"
+                                    max="2027-05-29"
+                                    class="w-full bg-white/80 border-2 border-shire-parchmentBorder rounded-lg px-4 py-3 text-shire-wood font-body text-lg focus:outline-none focus:border-shire-gold"
+                                >
+                            </div>
+                            <div>
+                                <label data-i18n="dateToLabel" for="date-to" class="block font-fantasy text-shire-wood text-sm mb-1">Regreso al hogar:</label>
+                                <input 
+                                    type="date" 
+                                    id="date-to" 
+                                    name="date_to"
+                                    min="2027-05-30"
+                                    max="2027-06-07"
+                                    class="w-full bg-white/80 border-2 border-shire-parchmentBorder rounded-lg px-4 py-3 text-shire-wood font-body text-lg focus:outline-none focus:border-shire-gold"
+                                >
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 8. Canción (Opcional) -->
+                    <div>
+                        <label class="block font-fantasy text-shire-wood text-lg mb-2" for="song-request">
+                            <i class="fas fa-music text-shire-ruby mr-2"></i> <span data-i18n="q8Label">Ni los elfos en sus bosques ni los enanos en sus salones celebran sin música. Escribe aquí un tema que sacudirá la Tierra Media.</span>
+                        </label>
+                        <input type="text" id="song-request" name="song_request" data-i18n-placeholder="q8Placeholder" placeholder="Ej: Ave Maria / Torero / Ops I did it again / YMCM / Breaking Free..." class="w-full bg-white/80 border-2 border-shire-parchmentBorder rounded-lg px-4 py-3 text-shire-wood font-body text-lg focus:outline-none focus:border-shire-gold">
+                    </div>
+
+                    <!-- 9. Mensaje (Opcional) -->
+                    <div>
+                        <label class="block font-fantasy text-shire-wood text-lg mb-2" for="message">
+                            <i class="fas fa-scroll text-shire-ruby mr-2"></i> <span data-i18n="q9Label">Palabras o bendiciones para los novios:</span>
+                        </label>
+                        <textarea id="message" name="message" rows="3" data-i18n-placeholder="q9Placeholder" placeholder="Escribe aquí tu mensaje de buenos augurios..." class="w-full bg-white/80 border-2 border-shire-parchmentBorder rounded-lg px-4 py-3 text-shire-wood font-body text-lg focus:outline-none focus:border-shire-gold"></textarea>
+                    </div>
+                    
+                    <label data-i18n="requiredNote" class="block font-fantasy text-shire-wood text-xs mb-2"> * Campo obligatorio. Si falta información marcada con asterisco, serás redirigido a ese campo de nuevo. </label>
+
+                    <!-- Botón Enviar -->
+                    <div class="text-center pt-4">
+                        <button type="submit" class="wax-seal text-white font-fantasy text-xl px-10 py-4 rounded-full transition duration-300 transform inline-flex items-center space-x-3 cursor-pointer hover:scale-105">
+                            <i class="fas fa-stamp text-2xl"></i>
+                            <span data-i18n="submitBtn">Sellar Decreto de Asistencia</span>
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Mensaje de éxito -->
+                <div id="rsvp-success" class="hidden text-center space-y-6 py-8">
+                    <div class="w-20 h-20 wax-seal rounded-full flex items-center justify-center mx-auto text-white text-3xl shadow-xl">
+                        ✓
+                    </div>
+                    <h3 data-i18n="successTitle" class="font-heading text-3xl text-shire-wood font-bold">¡Decreto Sellado con Éxito!</h3>
+                    <p data-i18n="successDesc" class="text-xl text-shire-woodlight italic max-w-lg mx-auto">
+                        Tus datos han sido registrados en el Libro de la Comarca. Santiago y Jenifer aguardan con ilusión tu llegada.
+                    </p>
+                    <button data-i18n="anotherResponse" onclick="resetForm()" class="font-fantasy text-sm text-shire-ruby hover:underline cursor-pointer">
+                        Enviar otra respuesta
                     </button>
                 </div>
-            </form>
 
-            <!-- Mensaje de éxito -->
-            <div id="rsvp-success" class="hidden text-center space-y-6 py-8">
-                <div class="w-20 h-20 wax-seal rounded-full flex items-center justify-center mx-auto text-white text-3xl shadow-xl">
-                    ✓
-                </div>
-                <h3 class="font-heading text-3xl text-shire-wood font-bold">¡Decreto Sellado con Éxito!</h3>
-                <p class="text-xl text-shire-woodlight italic max-w-lg mx-auto">
-                    Tus datos han sido registrados en el Libro de la Comarca. Santiago y Jenifer aguardan con ilusión tu llegada.
-                </p>
-                <button onclick="resetForm()" class="font-fantasy text-sm text-shire-ruby hover:underline">
-                    Enviar otra respuesta
-                </button>
             </div>
 
         </div>
-
-    </div>
-</section>
+    </section>
 
     <section class="py-20 px-4 sm:px-8 bg-shire-wood text-shire-parchment relative">
         <div class="max-w-5xl mx-auto space-y-16">
@@ -673,54 +654,56 @@ input[type="date"] {
             <!-- Travel Tips -->
             <div>
                 <div class="text-center mb-10 space-y-2">
-                    <p class="font-fantasy text-shire-gold">Consejos de La Comarca</p>
-                    <h2 class="font-heading text-3xl font-bold uppercase text-gold-gradient">Guía para Viajeros</h2>
+                    <p data-i18n="tipsTag" class="font-fantasy text-shire-gold">Consejos de La Comarca</p>
+                    <h2 data-i18n="tipsTitle" class="font-heading text-3xl font-bold uppercase text-gold-gradient">Guía para Viajeros</h2>
                     <div class="w-16 h-1 bg-shire-gold mx-auto"></div>
                 </div>
 
                 <div class="grid md:grid-cols-3 gap-6">
-                    <div class="bg-shire-woodlight p-3 rounded-lg border border-shire-gold/40 text-center space-y-3">
+                    <div class="bg-shire-woodlight p-6 rounded-lg border border-shire-gold/40 text-center space-y-3">
                         <i class="fas fa-user-ninja text-3xl text-shire-gold"></i>
-                        <h4 class="font-fantasy text-xl text-white">Código de Vestimenta Recomendado</h4>
-                        <p class="text-shire-parchmentDark text-base">
+                        <h4 data-i18n="tip1Title" class="font-fantasy text-xl text-white">Código de Vestimenta Recomendado</h4>
+                        <p data-i18n="tip1Desc" class="text-shire-parchmentDark text-base">
                             Elegancia Comarcal / Fantástica Formal. Trajes elegantes, vestidos de fiesta con toques de fantasía o detalles botánicos son más que bienvenidos. Pero os lo advierto: nada de ropajes blancos ni marfiles. Ese color queda reservado para quienes regresan de las sombras... como la novia.
                         </p>
                     </div>
 
                     <div class="bg-shire-woodlight p-6 rounded-lg border border-shire-gold/40 text-center space-y-3">
                         <i class="fas fa-bed text-3xl text-shire-gold"></i>
-                        <h4 class="font-fantasy text-xl text-white">Alojamiento</h4>
-                        <p class="text-shire-parchmentDark text-base">
+                        <h4 data-i18n="tip2Title" class="font-fantasy text-xl text-white">Alojamiento</h4>
+                        <p data-i18n="tip2Desc" class="text-shire-parchmentDark text-base">
                             Hemos reservado un bloque de habitaciones con descuento para los que venís de tierras lejanas. Enviadnos un mensaje directo si requerís más detalles.
                         </p>
                     </div>
 
                     <div class="bg-shire-woodlight p-6 rounded-lg border border-shire-gold/40 text-center space-y-3">
                         <i class="fas fa-bus text-3xl text-shire-gold"></i>
-                        <h4 class="font-fantasy text-xl text-white">Parking</h4>
-                        <p class="text-shire-parchmentDark text-base">
+                        <h4 data-i18n="tip3Title" class="font-fantasy text-xl text-white">Parking</h4>
+                        <p data-i18n="tip3Desc" class="text-shire-parchmentDark text-base">
                             No os preocupéis por vuestros poneys ni carromatos; el bastión dispone de parking, tanto cubierto como al aire libre.
                         </p>
                     </div>
 
-<div class="bg-shire-woodlight p-6 rounded-lg border border-shire-gold/40 text-center space-y-3">
-                        <i class="fa-light fa-regular fa-sun text-3xl text-shire-gold"></i>
-                        <h4 class="font-fantasy text-xl text-white">Clima</h4>
-                        <p class="text-shire-parchmentDark text-base">
+                    <div class="bg-shire-woodlight p-6 rounded-lg border border-shire-gold/40 text-center space-y-3">
+                        <i class="fas fa-sun text-3xl text-shire-gold"></i>
+                        <h4 data-i18n="tip4Title" class="font-fantasy text-xl text-white">Clima</h4>
+                        <p data-i18n="tip4Desc" class="text-shire-parchmentDark text-base">
                             Recordad, valientes viajeros: por estas fechas, en las tierras del sur de España la primavera llega a su fin y el calor se apodera de los días, alcanzando los 27º bajo el sol. Mas no os confiéis, pues al caer la noche el manto del frío regresa y las temperaturas pueden descender hasta los 12º. 
                         </p>
                     </div>
+
                     <div class="bg-shire-woodlight p-6 rounded-lg border border-shire-gold/40 text-center space-y-3">
                         <i class="fas fa-phone text-3xl text-shire-gold"></i>
-                        <h4 class="font-fantasy text-xl text-white">Contacto de Emergencia</h4>
-                        <p class="text-shire-parchmentDark text-base">
+                        <h4 data-i18n="tip5Title" class="font-fantasy text-xl text-white">Contacto de Emergencia</h4>
+                        <p data-i18n="tip5Desc" class="text-shire-parchmentDark text-base">
                             Si surge algún contratiempo el gran día, no busquéis a estos magos; contactad a la persona cuyo nombre y señal se revelarán aquí más adelante.
                         </p>
                     </div>
+
                     <div class="bg-shire-woodlight p-6 rounded-lg border border-shire-gold/40 text-center space-y-3">
                         <i class="fas fa-bell text-3xl text-shire-gold"></i>
-                        <h4 class="font-fantasy text-xl text-white">Recordatorio</h4>
-                        <p class="text-shire-parchmentDark text-base">
+                        <h4 data-i18n="tip6Title" class="font-fantasy text-xl text-white">Recordatorio</h4>
+                        <p data-i18n="tip6Desc" class="text-shire-parchmentDark text-base">
                             No os demoréis. Recordad que las puertas del festejo requieren vuestra confirmación antes de que caiga el sol el 1 de abril de 2027. 
                         </p>
                     </div>
@@ -728,26 +711,25 @@ input[type="date"] {
             </div>
 
             <!-- Wedding Registry Gift Section -->
-<div class="bg-shire-woodlight/60 border-2 border-shire-gold p-8 sm:p-12 rounded-2xl text-center space-y-6 max-w-3xl mx-auto backdrop-blur-sm">
+            <div class="bg-shire-woodlight/60 border-2 border-shire-gold p-8 sm:p-12 rounded-2xl text-center space-y-6 max-w-3xl mx-auto backdrop-blur-sm">
                 <i class="fas fa-coins text-4xl text-shire-gold"></i>
-                <h3 class="font-heading text-3xl font-bold text-white">El Cofre del Tesoro</h3>
-                <p class="text-lg text-shire-parchmentDark leading-relaxed">
+                <h3 data-i18n="giftTitle" class="font-heading text-3xl font-bold text-white">El Cofre del Tesoro</h3>
+                <p data-i18n="giftDesc" class="text-lg text-shire-parchmentDark leading-relaxed">
                     El mejor regalo es vuestra presencia en nuestro Gran Viaje. No obstante, si deseáis colaborar con monedas de oro para nuestra expedición de luna de miel:
                 </p>
                 
                 <div class="bg-shire-dark/80 p-4 rounded-xl border border-shire-gold/50 inline-block">
-                    <p class="font-fantasy text-shire-gold text-sm uppercase mb-1">IBAN / Cuenta Corriente</p>
-                    <p class="font-fantasy text-2xl text-shire-gold font-bold tracking-wider">Próximamente</p>
+                    <p data-i18n="ibanLabel" class="font-fantasy text-shire-gold text-sm uppercase mb-1">IBAN / Cuenta Corriente</p>
+                    <p data-i18n="ibanSoon" class="font-fantasy text-2xl text-shire-gold font-bold tracking-wider">Próximamente</p>
                 </div>
-
-                <!-- Botón de copiar oculto/eliminado temporalmente hasta que haya cuenta -->
             </div>
 
-        </div>    </section>
+        </div>
+    </section>
 
     <div id="photo-modal" class="fixed inset-0 bg-black/90 z-50 hidden flex items-center justify-center p-4 backdrop-blur-md">
         <div class="bg-parchment-card max-w-3xl w-full p-6 sm:p-8 rounded-2xl border-4 border-shire-gold relative space-y-4">
-            <button onclick="closeModal()" class="absolute top-4 right-4 text-shire-wood text-3xl hover:text-shire-ruby transition">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-shire-wood text-3xl hover:text-shire-ruby transition cursor-pointer">
                 &times;
             </button>
             <div class="overflow-hidden rounded-xl border-2 border-shire-wood">
@@ -758,16 +740,331 @@ input[type="date"] {
         </div>
     </div>
 
-    <footer class="bg-shire-dark border-t border-shire-gold/30 py-8 text-center text-shire-parchmentDark space-y-3">
-        <p class="font-fantasy text-lg text-shire-gold">
+    <footer class="bg-shire-dark border-t border-shire-gold/30 py-8 text-center text-shire-parchmentDark space-y-3 px-4">
+        <p data-i18n="footerDate" class="font-fantasy text-lg text-shire-gold">
             Santiago & Jenifer • 29 de Mayo de 2027
         </p>
-        <p class="text-xs text-shire-parchmentDark/60">
+        <p data-i18n="footerQuote" class="text-xs text-shire-parchmentDark/60">
             «El Camino sigue y sigue, desde la puerta donde comenzó. Ahora un nuevo sendero se abre ante nosotros, y lo recorreremos juntos, paso a paso.»
         </p>
     </footer>
 
     <script>
+        // =========================================================================
+        // DICCIONARIO DE TRADUCCIONES (ESPAÑOL / INGLÉS)
+        // =========================================================================
+        let currentLang = 'es';
+
+        const photosData = [
+            {
+                src: 'https://lh3.googleusercontent.com/d/1I7xEkVJErLTK1mnZbNeQ2LAXPAzQjHjf',
+                title: { es: 'Mykonos', en: 'Mykonos' },
+                desc: { es: 'Sábado, 30 de septiembre de 2023', en: 'Saturday, September 30, 2023' }
+            },
+            {
+                src: 'https://lh3.googleusercontent.com/d/1p1pv6yKxbE7OA2wYtZej-Crwmsk6LpF5',
+                title: { es: 'Santorini', en: 'Santorini' },
+                desc: { es: 'Domingo, 17 de septiembre de 2023', en: 'Sunday, September 17, 2023' }
+            },
+            {
+                src: 'https://lh3.googleusercontent.com/d/14z-Hz1N6Pq7AjScWc_1UfodeicJhSDY4',
+                title: { es: 'Aegina', en: 'Aegina' },
+                desc: { es: 'Domingo, 3 de julio de 2022', en: 'Sunday, July 3, 2022' }
+            },
+            {
+                src: 'https://lh3.googleusercontent.com/d/1HnGTE7eCrznN8MDxsC8mw5AEff7HEiTd',
+                title: { es: 'Vlaxokerasia', en: 'Vlaxokerasia' },
+                desc: { es: 'Domingo, 26 de junio de 2022', en: 'Sunday, June 26, 2022' }
+            },
+            {
+                src: 'https://lh3.googleusercontent.com/d/12J-wejQTAwzWoUMx4Ll1XjA5b794jrn4',
+                title: { es: 'Caltagirone', en: 'Caltagirone' },
+                desc: { es: 'Sábado, 7 de octubre de 2023', en: 'Saturday, October 7, 2023' }
+            },
+            {
+                src: 'https://lh3.googleusercontent.com/d/15C9chvqJ0m11hEKu45KxbOfZMKY3qLMk',
+                title: { es: 'Bilbao', en: 'Bilbao' },
+                desc: { es: 'Viernes, 31 de marzo de 2023', en: 'Friday, March 31, 2023' }
+            },
+            {
+                src: 'https://lh3.googleusercontent.com/d/1YSMbuRIjZ-bviiFphEF1xmJCHMoFBmBO',
+                title: { es: 'Bruselas', en: 'Brussels' },
+                desc: { es: 'Sábado, 17 de diciembre de 2022', en: 'Saturday, December 17, 2022' }
+            },
+            {
+                src: 'https://lh3.googleusercontent.com/d/1Gi0_HLCLsM8hBFtIxFGxy6bAEHgrANR7',
+                title: { es: 'Brujas', en: 'Bruges' },
+                desc: { es: 'Viernes, 16 de diciembre de 2022', en: 'Friday, December 16, 2022' }
+            },
+            {
+                src: 'https://lh3.googleusercontent.com/d/13t9V1W9L4DkbDlM-Mg81X2c41Tiy4ZFZ',
+                title: { es: 'Melbourne', en: 'Melbourne' },
+                desc: { es: 'Miércoles, 25 de diciembre de 2024', en: 'Wednesday, December 25, 2024' }
+            },
+            {
+                src: 'https://lh3.googleusercontent.com/d/1Rqvsd6CuOXas04W4Cvq5WlTGCcQfRnaw',
+                title: { es: 'Blue Mountains', en: 'Blue Mountains' },
+                desc: { es: 'Jueves, 16 de julio de 2026', en: 'Thursday, July 16, 2026' }
+            },
+            {
+                src: 'https://lh3.googleusercontent.com/d/1-ZLVW2n2Yv7bXhMW7Kt0BQiNzAHo6gHH',
+                title: { es: 'Sydney', en: 'Sydney' },
+                desc: { es: 'Martes, 14 de julio de 2026', en: 'Tuesday, July 14, 2026' }
+            },
+            {
+                src: 'https://lh3.googleusercontent.com/d/1EiJPrPeLfbBpfO5pqkVMJ26DtQEgEg6O',
+                title: { es: 'Hobbiton', en: 'Hobbiton' },
+                desc: { es: 'Lunes, 20 de julio de 2026', en: 'Monday, July 20, 2026' }
+            },
+            {
+                src: 'https://lh3.googleusercontent.com/d/1X9x2dbw8tLLj0NqNDfVUMWqGX6o1By9q',
+                title: { es: 'Patras', en: 'Patras' },
+                desc: { es: 'Domingo, 26 de febrero de 2023', en: 'Sunday, February 26, 2023' }
+            }
+        ];
+
+        const translations = {
+            es: {
+                pageTitle: 'Santiago & Jenifer - Un Viaje Inesperado | Boda en La Comarca',
+                langToggleBtn: 'EN',
+                musicOff: 'Música de La Comarca',
+                musicOn: 'Música Activada',
+                heroSubtitle: '"Un Viaje Inesperado: La Boda"',
+                heroDate: '29 DE MAYO DE 2027',
+                days: 'Días',
+                hours: 'Horas',
+                minutes: 'Minutos',
+                seconds: 'Segundos',
+                startJourney: 'Comenzar el Viaje',
+                mapTag: 'El Mapa del Viajero',
+                mapTitle: 'Nuestro Camino por la Tierra Media',
+                mapSubtitle: 'Un viaje de mil leguas comienza con un solo paso. Acompáñanos, pues nosotros ya hemos dado unos cuantos...',
+                stop1Title: '«El mundo no está en los libros y mapas. ¡Está ahí fuera!»',
+                stop1Desc: 'Esta historia comenzó a escribirse en 2022, allá en las tierras de Atenas. Juntos navegamos por decenas de islas griegas, conocimos a gentes venidas de todos los rincones de Europa y sumamos valiosos aliados a nuestra compañía. Al fin, decidimos compartir el mismo hogar... Sí, fue una época inolvidable, repleta de encuentros, de grandes planes y de gyros (¡y pobre de aquel que lo pronuncie "yairo", por la barba de Durin!).',
+                stop2Title: '«No toda la gente errante anda perdida»',
+                stop2Desc: 'Nuestra pasión compartida por explorar el mundo nos ha llevado a descubrir lugares con los que muchos solo sueñan. Hemos cabalgado juntos hacia innumerables tierras: Bruselas, Brujas, Viena, Ksamil, Bérgamo, Bilbao, Andorra, Doha, cruzamos el gran mar hacia Buenos Aires y Venado Tuerto, y recorrimos cada rincón de Grecia... hasta que nos topamos con nuestra más grande aventura...',
+                stop3Title: '«Si vuelves, no vas a ser el mismo»',
+                stop3Desc: '... La etapa de nuestra Work & Holidays en Australia. Nada une tanto a dos viajeros como mudarse juntos al mismísimo otro lado del planeta. Hemos trabajado muy duro, es verdad, pero también contemplamos maravillas increíbles y vivimos una experiencia irrepetible... rodeados de bichos gigantescos, por supuesto. ¡Sídney bien podría ser la ciudad más hermosa que jamás hayan visto nuestros ojos! Y Nueva Zelanda... ah, ese es el lugar con los mejores paisajes de toda la creación.',
+                stop4Title: '«Prefiero compartir una vida contigo que enfrentar todas las edades de este mundo a solas»',
+                stop4Desc: 'No encontraréis en los libros de Rivendel, ni en los conjuros más antiguos de los elfos, un poder que iguale al de un auténtico beso de amor. Y os aseguro, mi querido amigo, que tal magia se agiganta cuando se sella ante un caballero que dobla su rodilla, ofreciendo un anillo de promesa y destino. ¡Preparad vuestro espíritu, pues el camino va siempre hacia adelante y la verdadera aventura apenas comienza!',
+                placesTag: 'Guía de Destinos',
+                placesTitle: 'Los Lugares del Reino',
+                placesSubtitle: 'Dos enclaves sagrados para dos momentos inolvidables de la jornada',
+                stage1Tag: 'Etapa I • La Ceremonia',
+                stage1Title: 'Santuario de Ntra. Sra. de la Cabeza (Iglesia del Cerro)',
+                stage1Desc: 'Allá en lo alto del vetusto cerro de Motril, donde los aires del mar abrazan las piedras milenarias, uniremos nuestros destinos bajo la bendición de los Poderes de la Tierra.',
+                stage2Tag: 'Etapa II • El viaje',
+                stage2Title: 'Transporte al banquete',
+                stage2Time: 'A determinar',
+                stage2Loc: 'Parque de las Americas (Provisional)',
+                stage2Desc: 'Quienes necesiten transporte para alcanzar la gran fiesta, no teman: un carruaje de hierro aguardará a la comunidad para conducirlos seguros al festín.',
+                stage3Tag: 'Etapa III • El Banquete',
+                stage3Time: '18:30 h (Provisional)',
+                stage3Desc: 'Frente al acantilado y el mar Mediterráneo, disfrutaremos del banquete de Hobbits y Elfos, música, bailes hasta el amanecer y muchas sorpresas.',
+                mapBtn: 'Mapa del Navegante (Google Maps)',
+                rsvpTag: 'Decreto Real de Asistencia',
+                rsvpTitle: 'Juramento de presencia',
+                rsvpSubtitle: 'Por favor, envía tu paloma mensajera antes del 1 de Abril de 2027',
+                q1Label: '¡Que estallen las presentaciones! Escribe aquí tu nombre completo. (*)',
+                q1Placeholder: 'Ej: Frodo Bolsón',
+                q2Label: 'Las estrellas presagian una gran reunión. ¿Acudirás a la llamada cuando se enciendan las almenaras, o rehuirás la celebración? (*)',
+                q2Yes: '<strong>Sí, asistiré:</strong> Un mago nunca llega tarde, ni pronto; llega exactamente cuando se lo propone. ¡Allí estaré!',
+                q2No: '<strong>No podré asistir:</strong> Mis pasos me llevan por senderos urgentes y oscuros lejos de aquí, pero os deseo toda la felicidad en vuestro viaje.',
+                q3Label: '¿Asistirán contigo otros aliados en esta celebración, o vaga tu alma en el aislamiento de un errante de las tierras salvajes? Dinos sus nombres.',
+                q3Placeholder: 'Ej: Aragorn y Legolas',
+                q4Label: '¿Te acompañan pequeños medianos en esta jornada? Desvela sus nombres y los inviernos que han contemplado.',
+                q4Placeholder: 'Ej: Andrés - 7 años',
+                q5Label: 'Hay venenos sutiles que nublan el festín y hierbas que no todos los estómagos toleran. Dinos si tenéis alguna preferencia o si algún alimento os causa debilidad: (*)',
+                dietDefault: 'Selecciona tu tipo de menú...',
+                dietStandard: 'Menú Estándar de La Comarca',
+                dietVeg: 'Menú Vegetariano de Rivendel',
+                dietVegan: 'Menú Vegano de Lorien',
+                dietAllergies: 'Alergias / Intolerancias (Especificar abajo)',
+                allergiesLabel: 'Especifica tus alergias o intolerancias: (*)',
+                allergiesPlaceholder: 'Ejemplo: Intolerancia a la lactosa, alergia a los frutos secos...',
+                q6Label: 'Los caballos no bastarán para trasladar a todo el ejército desde el santuario hasta el gran salón de banquetes. Una gran caravana de hierro será dispuesta para el traslado. ¿Os uniréis a ella o confiaréis vuestro viaje a vuestra propia montura? (*)',
+                busNo: '<strong>No precisaré caravana:</strong> No, mi buen amigo. Seguiré mi propio camino, como un auténtico montaraz.',
+                busOneWay: '<strong>Solo ida:</strong> Iré en la caravana hacia el banquete, pero tengo mis propios planes para el final de los festejos.',
+                busReturn: '<strong>Solo vuelta:</strong> Llegaré al templo por mis propios medios, pero cuando la noche caiga y el cansancio pese, me uniré a vuestra caravana.',
+                busRoundTrip: '<strong>Ida y vuelta:</strong> ¡Contad conmigo para todo el viaje! No pienso perderme ni un solo tramo de esta gran aventura.',
+                q7Label: '¿Vas a necesitar habitación en la posada del banquete? Tras tantos brindis y bailes, hasta el más sabio de los magos necesita un buen jergón donde caer rendido. Dinos si te quedarás a pasar la noche en los aposentos del propio recinto o si tu camino te llevará de vuelta a casa antes del amanecer.',
+                dateFromLabel: 'Llegada al festín:',
+                dateToLabel: 'Regreso al hogar:',
+                q8Label: 'Ni los elfos en sus bosques ni los enanos en sus salones celebran sin música. Escribe aquí un tema que sacudirá la Tierra Media.',
+                q8Placeholder: 'Ej: Ave Maria / Torero / Oops!... I Did It Again / YMCA / Breaking Free...',
+                q9Label: 'Palabras o bendiciones para los novios:',
+                q9Placeholder: 'Escribe aquí tu mensaje de buenos augurios...',
+                requiredNote: '* Campo obligatorio. Si falta información marcada con asterisco, serás redirigido a ese campo de nuevo.',
+                submitBtn: 'Sellar Decreto de Asistencia',
+                successTitle: '¡Decreto Sellado con Éxito!',
+                successDesc: 'Tus datos han sido registrados en el Libro de la Comarca. Santiago y Jenifer aguardan con ilusión tu llegada.',
+                anotherResponse: 'Enviar otra respuesta',
+                tipsTag: 'Consejos de La Comarca',
+                tipsTitle: 'Guía para Viajeros',
+                tip1Title: 'Código de Vestimenta Recomendado',
+                tip1Desc: 'Elegancia Comarcal / Fantástica Formal. Trajes elegantes, vestidos de fiesta con toques de fantasía o detalles botánicos son más que bienvenidos. Pero os lo advierto: nada de ropajes blancos ni marfiles. Ese color queda reservado para quienes regresan de las sombras... como la novia.',
+                tip2Title: 'Alojamiento',
+                tip2Desc: 'Hemos reservado un bloque de habitaciones con descuento para los que venís de tierras lejanas. Enviadnos un mensaje directo si requerís más detalles.',
+                tip3Title: 'Parking',
+                tip3Desc: 'No os preocupéis por vuestros poneys ni carromatos; el bastión dispone de parking, tanto cubierto como al aire libre.',
+                tip4Title: 'Clima',
+                tip4Desc: 'Recordad, valientes viajeros: por estas fechas, en las tierras del sur de España la primavera llega a su fin y el calor se apodera de los días, alcanzando los 27º bajo el sol. Mas no os confiéis, pues al caer la noche el manto del frío regresa y las temperaturas pueden descender hasta los 12º.',
+                tip5Title: 'Contacto de Emergencia',
+                tip5Desc: 'Si surge algún contratiempo el gran día, no busquéis a estos magos; contactad a la persona cuyo nombre y señal se revelarán aquí más adelante.',
+                tip6Title: 'Recordatorio',
+                tip6Desc: 'No os demoréis. Recordad que las puertas del festejo requieren vuestra confirmación antes de que caiga el sol el 1 de abril de 2027.',
+                giftTitle: 'El Cofre del Tesoro',
+                giftDesc: 'El mejor regalo es vuestra presencia en nuestro Gran Viaje. No obstante, si deseáis colaborar con monedas de oro para nuestra expedición de luna de miel:',
+                ibanLabel: 'IBAN / Cuenta Corriente',
+                ibanSoon: 'Próximamente',
+                footerDate: 'Santiago & Jenifer • 29 de Mayo de 2027',
+                footerQuote: '«El Camino sigue y sigue, desde la puerta donde comenzó. Ahora un nuevo sendero se abre ante nosotros, y lo recorreremos juntos, paso a paso.»',
+                alertError: 'Hubo un problema al enviar tu respuesta. Por favor, inténtalo de nuevo.',
+                alertNetwork: 'Error de red. Por favor, verifica tu conexión e inténtalo más tarde.'
+            },
+            en: {
+                pageTitle: 'Santiago & Jenifer - An Unexpected Journey | Wedding in The Shire',
+                langToggleBtn: 'ES',
+                musicOff: 'Shire Music',
+                musicOn: 'Music Playing',
+                heroSubtitle: '"An Unexpected Journey: The Wedding"',
+                heroDate: 'MAY 29, 2027',
+                days: 'Days',
+                hours: 'Hours',
+                minutes: 'Minutes',
+                seconds: 'Seconds',
+                startJourney: 'Begin the Journey',
+                mapTag: 'The Traveler\'s Map',
+                mapTitle: 'Our Path Through Middle-earth',
+                mapSubtitle: 'A journey of a thousand leagues begins with a single step. Join us, for we have already taken quite a few...',
+                stop1Title: '«The world is not in your books and maps. It’s out there!»',
+                stop1Desc: 'This tale began to be written in 2022, over in the lands of Athens. Together we sailed across dozens of Greek islands, met folk from every corner of Europe, and added worthy allies to our fellowship. At last, we decided to share the same home... Yes, it was an unforgettable era, filled with encounters, grand plans, and gyros (and woe to anyone who pronounces it "jai-ro", by Durin\'s beard!).',
+                stop2Title: '«Not all those who wander are lost»',
+                stop2Desc: 'Our shared passion for exploring the world has led us to discover places many only dream of. We have ridden together to countless lands: Brussels, Bruges, Vienna, Ksamil, Bergamo, Bilbao, Andorra, Doha, we crossed the Great Sea to Buenos Aires and Venado Tuerto, and roamed every corner of Greece... until we stumbled upon our greatest adventure yet...',
+                stop3Title: '«If you do come back, you will not be the same»',
+                stop3Desc: '...Our Working Holiday chapter in Australia. Nothing binds two travelers closer than moving together to the very other side of the world. We worked very hard, it is true, yet we also beheld breathtaking wonders and lived a once-in-a-lifetime experience... surrounded by giant critters, of course. Sydney might well be the fairest city our eyes have ever seen! And New Zealand... ah, that is the land blessed with the finest landscapes in all creation.',
+                stop4Title: '«I would rather share one lifetime with you than face all the ages of this world alone»',
+                stop4Desc: 'You will not find in the lore of Rivendell, nor in the oldest spells of the Elves, a power equal to that of a true love\'s kiss. And I assure you, my dear friend, that such magic grows tenfold when sealed before a knight bending the knee, offering a ring of promise and destiny. Steel your spirit, for the Road goes ever on and on, and the true adventure is only just beginning!',
+                placesTag: 'Destination Guide',
+                placesTitle: 'Realms of the Celebration',
+                placesSubtitle: 'Sacred sanctuaries for the unforgettable moments of the day',
+                stage1Tag: 'Stage I • The Ceremony',
+                stage1Title: 'Sanctuary of Our Lady of la Cabeza (Iglesia del Cerro)',
+                stage1Desc: 'High atop the ancient hill of Motril, where the sea breezes embrace the age-old stones, we shall unite our destinies under the blessing of the Powers of the Earth.',
+                stage2Tag: 'Stage II • The Journey',
+                stage2Title: 'Transport to the Banquet',
+                stage2Time: 'To be determined',
+                stage2Loc: 'Parque de las Américas (Provisional)',
+                stage2Desc: 'Those requiring transport to reach the grand celebration, fear not: an iron carriage shall await the fellowship to carry you safely to the feast.',
+                stage3Tag: 'Stage III • The Banquet',
+                stage3Time: '6:30 PM / 18:30 (Provisional)',
+                stage3Desc: 'Overlooking the cliffs and the Mediterranean Sea, we shall enjoy a feast worthy of Hobbits and Elves, music, dancing until dawn, and many surprises.',
+                mapBtn: 'Navigator\'s Map (Google Maps)',
+                rsvpTag: 'Royal Decree of Attendance',
+                rsvpTitle: 'Oath of Presence',
+                rsvpSubtitle: 'Please dispatch your carrier pigeon before April 1, 2027',
+                q1Label: 'Let the introductions ring out! Write your full name here. (*)',
+                q1Placeholder: 'E.g., Frodo Baggins',
+                q2Label: 'The stars foretell a great gathering. Will you answer the call when the beacons are lit, or must you turn away from the celebration? (*)',
+                q2Yes: '<strong>Yes, I shall attend:</strong> A wizard is never late, nor is he early; he arrives precisely when he means to. I will be there!',
+                q2No: '<strong>I cannot attend:</strong> My steps lead me down urgent and shadowed paths far from here, yet I wish you all the happiness on your journey.',
+                q3Label: 'Will other allies join you at this celebration, or does your soul wander in the solitude of a ranger of the wild? Tell us their names.',
+                q3Placeholder: 'E.g., Aragorn and Legolas',
+                q4Label: 'Are little Halflings accompanying you on this journey? Reveal their names and the winters they have seen.',
+                q4Placeholder: 'E.g., Andrew - 7 years old',
+                q5Label: 'Subtle poisons can cloud a feast, and certain herbs not every stomach can bear. Tell us if you have any dietary preferences or if any food causes you weakness: (*)',
+                dietDefault: 'Select your feast menu...',
+                dietStandard: 'Standard Shire Menu',
+                dietVeg: 'Rivendell Vegetarian Menu',
+                dietVegan: 'Lothlórien Vegan Menu',
+                dietAllergies: 'Allergies / Intolerances (Specify below)',
+                allergiesLabel: 'Specify your allergies or intolerances: (*)',
+                allergiesPlaceholder: 'Example: Lactose intolerance, nut allergy...',
+                q6Label: 'Horses alone will not suffice to carry the entire host from the sanctuary to the great banquet hall. A grand iron caravan will be arranged for the transfer. Will you join it, or entrust your journey to your own steed? (*)',
+                busNo: '<strong>I will not need the caravan:</strong> No, my good friend. I shall walk my own path, like a true Ranger.',
+                busOneWay: '<strong>Outbound only:</strong> I will ride the caravan to the banquet, though I have my own plans for the end of the festivities.',
+                busReturn: '<strong>Return only:</strong> I will reach the sanctuary by my own means, but when night falls and weariness sets in, I shall join your caravan.',
+                busRoundTrip: '<strong>Round trip:</strong> Count me in for the whole journey! I wouldn\'t miss a single leg of this grand adventure.',
+                q7Label: 'Will you need a room at the banquet inn? After so many toasts and dances, even the wisest of wizards needs a good bed to collapse upon. Let us know if you will stay the night in the venue\'s chambers or if your road leads you home before dawn.',
+                dateFromLabel: 'Arrival at the feast:',
+                dateToLabel: 'Return home:',
+                q8Label: 'Neither Elves in their woods nor Dwarves in their halls celebrate without music. Write down a song that will shake Middle-earth.',
+                q8Placeholder: 'E.g., Ave Maria / Torero / Oops!... I Did It Again / YMCA / Breaking Free...',
+                q9Label: 'Words or blessings for the bride and groom:',
+                q9Placeholder: 'Write your message of good tidings here...',
+                requiredNote: '* Required field. If information marked with an asterisk is missing, you will be redirected back to that field.',
+                submitBtn: 'Seal Decree of Attendance',
+                successTitle: 'Decree Sealed Successfully!',
+                successDesc: 'Your details have been recorded in the Red Book of the Shire. Santiago and Jenifer eagerly await your arrival.',
+                anotherResponse: 'Submit another response',
+                tipsTag: 'Counsel from The Shire',
+                tipsTitle: 'Traveler\'s Guide',
+                tip1Title: 'Recommended Dress Code',
+                tip1Desc: 'Shire Elegance / Fantasy Formal. Sharp suits, evening gowns with touches of fantasy, or botanical details are more than welcome. Yet be warned: no white or ivory garments. That hue is reserved for those returning from the shadows... such as the bride.',
+                tip2Title: 'Accommodation',
+                tip2Desc: 'We have reserved a block of discounted rooms for those traveling from distant lands. Send us a direct message if you require further details.',
+                tip3Title: 'Parking',
+                tip3Desc: 'Fret not over your ponies or wagons; the stronghold offers parking, both covered and open-air.',
+                tip4Title: 'Weather',
+                tip4Desc: 'Remember, brave travelers: around this time in the lands of southern Spain, spring draws to a close and warmth claims the days, reaching 27°C (80°F) under the sun. Yet do not let your guard down, for as night falls, a chill cloak returns and temperatures may drop to 12°C (54°F).',
+                tip5Title: 'Emergency Contact',
+                tip5Desc: 'Should any mishap arise on the great day, do not seek out these wizards; contact the person whose name and signal shall be revealed here closer to the date.',
+                tip6Title: 'Reminder',
+                tip6Desc: 'Do not tarry. Remember that the gates of the celebration require your confirmation before the sun sets on April 1, 2027.',
+                giftTitle: 'The Treasure Chest',
+                giftDesc: 'The greatest gift is your presence on our Grand Journey. However, should you wish to contribute gold coins toward our honeymoon expedition:',
+                ibanLabel: 'IBAN / Bank Account',
+                ibanSoon: 'Coming Soon',
+                footerDate: 'Santiago & Jenifer • May 29, 2027',
+                footerQuote: '«The Road goes ever on and on, down from the door where it began. Now a new path opens before us, and we shall walk it together, step by step.»',
+                alertError: 'There was a problem sending your response. Please try again.',
+                alertNetwork: 'Network error. Please check your connection and try again later.'
+            }
+        };
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'es' ? 'en' : 'es';
+            document.documentElement.lang = currentLang;
+            const t = translations[currentLang];
+
+            // Actualizar título de pestaña y botón de idioma
+            document.title = t.pageTitle;
+            document.getElementById('lang-text').innerText = t.langToggleBtn;
+
+            // Actualizar texto del botón de audio según su estado actual
+            const soundText = document.getElementById('sound-text');
+            if (soundText) {
+                soundText.innerText = isPlaying ? t.musicOn : t.musicOff;
+            }
+
+            // Actualizar textos planos (data-i18n)
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (t[key]) {
+                    el.innerText = t[key];
+                }
+            });
+
+            // Actualizar textos con etiquetas HTML como <strong> (data-i18n-html)
+            document.querySelectorAll('[data-i18n-html]').forEach(el => {
+                const key = el.getAttribute('data-i18n-html');
+                if (t[key]) {
+                    el.innerHTML = t[key];
+                }
+            });
+
+            // Actualizar placeholders (data-i18n-placeholder)
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                const key = el.getAttribute('data-i18n-placeholder');
+                if (t[key]) {
+                    el.placeholder = t[key];
+                }
+            });
+        }
+
+        // =========================================================================
+        // CUENTA REGRESIVA
+        // =========================================================================
         const weddingDate = new Date("May 29, 2027 12:00:00").getTime();
 
         function updateCountdown() {
@@ -790,23 +1087,22 @@ input[type="date"] {
         updateCountdown();
 
         // =========================================================================
-        // LÍNEA EXACTA PARA CAMBIAR LA CANCIÓN DE FONDO EN EL CÓDIGO JAVASCRIPT:
+        // AUDIO
         // =========================================================================
         let audioUrl = 'https://mp3tourl.com/audio/1791366443143-7129d727-ef02-4a6a-8a9a-4df7a5648d80.m4a';
-        // Solo debes reemplazar la URL entre comillas simples '...' por el enlace de tu MP3 favorito.
-
         let isPlaying = false;
 
         function toggleAudio() {
             const audioElement = document.getElementById('wedding-music');
             const soundIcon = document.getElementById('sound-icon');
             const soundText = document.getElementById('sound-text');
+            const t = translations[currentLang];
 
             if (!isPlaying) {
                 audioElement.play().then(() => {
                     isPlaying = true;
                     soundIcon.className = 'fas fa-volume-up text-lg text-shire-gold';
-                    soundText.innerText = 'Música Activada';
+                    soundText.innerText = t.musicOn;
                 }).catch(err => {
                     console.error("Error reproduciendo el audio:", err);
                 });
@@ -814,23 +1110,13 @@ input[type="date"] {
                 audioElement.pause();
                 isPlaying = false;
                 soundIcon.className = 'fas fa-volume-mute text-lg';
-                soundText.innerText = 'Música de La Comarca';
+                soundText.innerText = t.musicOff;
             }
         }
 
-        function changeAudioUrl() {
-            const input = document.getElementById('custom-audio-input').value;
-            if (input) {
-                const audioElement = document.getElementById('wedding-music');
-                const sourceElement = document.getElementById('audio-source');
-                sourceElement.src = input;
-                audioElement.load();
-                if (isPlaying) {
-                    audioElement.play();
-                }
-            }
-        }
-
+        // =========================================================================
+        // PARTÍCULAS Y MODAL DE FOTOS
+        // =========================================================================
         function createLeaves() {
             const container = document.getElementById('leaves-container');
             const leafIcons = ['🌸', '🏵️', '🌿'];
@@ -847,127 +1133,98 @@ input[type="date"] {
         }
         createLeaves();
 
-        function openModal(imgSrc, title, desc) {
-            document.getElementById('modal-img').src = imgSrc;
-            document.getElementById('modal-title').innerText = title;
-            document.getElementById('modal-desc').innerText = desc;
+        function openPhotoModal(index) {
+            const photo = photosData[index];
+            if (!photo) return;
+            document.getElementById('modal-img').src = photo.src;
+            document.getElementById('modal-title').innerText = photo.title[currentLang];
+            document.getElementById('modal-desc').innerText = photo.desc[currentLang];
             document.getElementById('photo-modal').classList.remove('hidden');
         }
 
         function closeModal() {
             document.getElementById('photo-modal').classList.add('hidden');
         }
-document.addEventListener('DOMContentLoaded', () => {
-    // Manejo de la visibilidad del cuadro de alergias
-    const dietSelect = document.getElementById('diet');
-    const allergiesContainer = document.getElementById('allergies-container');
 
-    if (dietSelect && allergiesContainer) {
-        dietSelect.addEventListener('change', () => {
-            if (dietSelect.value === 'Alergias') {
-                allergiesContainer.classList.remove('hidden');
-            } else {
-                allergiesContainer.classList.add('hidden');
-                document.getElementById('allergies-details').value = '';
+        // =========================================================================
+        // FORMULARIO RSVP (FORMSPREE)
+        // =========================================================================
+        document.addEventListener('DOMContentLoaded', () => {
+            const dietSelect = document.getElementById('diet');
+            const allergiesContainer = document.getElementById('allergies-container');
+            const allergiesInput = document.getElementById('allergies-details');
+
+            function toggleAllergiesInput() {
+                if (dietSelect.value === 'Alergias') {
+                    allergiesContainer.classList.remove('hidden');
+                    allergiesInput.focus();
+                } else {
+                    allergiesContainer.classList.add('hidden');
+                    allergiesInput.value = '';
+                }
+            }
+
+            if (dietSelect && allergiesContainer) {
+                dietSelect.addEventListener('change', toggleAllergiesInput);
+                toggleAllergiesInput();
             }
         });
-    }
-});
 
-async function handleRSVP(event) {
-    event.preventDefault();
+        async function handleRSVP(event) {
+            event.preventDefault();
+            const t = translations[currentLang];
 
-    // Capturar radio buttons seleccionados
-    const attendanceRadio = document.querySelector('input[name="attendance"]:checked');
-    const busRadio = document.querySelector('input[name="bus_option"]:checked');
+            const attendanceRadio = document.querySelector('input[name="attendance"]:checked');
+            const busRadio = document.querySelector('input[name="bus_option"]:checked');
 
-    // Recopilar todos los datos del nuevo formulario
-    const rsvpData = {
-        nombre: document.getElementById('guest-name').value.trim(),
-        asistencia: attendanceRadio ? attendanceRadio.value : 'No especificado',
-        acompañantes_adultos: document.getElementById('companions').value.trim() || 'Ninguno',
-        acompañantes_ninos: document.getElementById('children').value.trim() || 'Ninguno',
-        menu: document.getElementById('diet').value,
-        detalles_alergias: document.getElementById('allergies-details').value.trim() || 'N/A',
-        autobus_caravana: busRadio ? busRadio.value : 'No especificado',
-        hotel_fecha_llegada: document.getElementById('date-from').value || 'No precisa',
-        hotel_fecha_salida: document.getElementById('date-to').value || 'No precisa',
-        cancion: document.getElementById('song-request').value.trim() || 'Sin sugerencia',
-        mensaje: document.getElementById('message').value.trim() || 'Sin mensaje',
-        fecha_registro: new Date().toLocaleString('es-ES')
-    };
+            const rsvpData = {
+                nombre: document.getElementById('guest-name').value.trim(),
+                idioma_formulario: currentLang.toUpperCase(),
+                asistencia: attendanceRadio ? attendanceRadio.value : 'No especificado',
+                acompañantes_adultos: document.getElementById('companions').value.trim() || 'Ninguno',
+                acompañantes_ninos: document.getElementById('children').value.trim() || 'Ninguno',
+                menu: document.getElementById('diet').value,
+                detalles_alergias: document.getElementById('allergies-details').value.trim() || 'N/A',
+                autobus_caravana: busRadio ? busRadio.value : 'No especificado',
+                hotel_fecha_llegada: document.getElementById('date-from').value || 'No precisa',
+                hotel_fecha_salida: document.getElementById('date-to').value || 'No precisa',
+                cancion: document.getElementById('song-request').value.trim() || 'Sin sugerencia',
+                mensaje: document.getElementById('message').value.trim() || 'Sin mensaje',
+                fecha_registro: new Date().toLocaleString('es-ES')
+            };
 
-    try {
-        const response = await fetch('https://formspree.io/f/mljggpgz', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
-            body: JSON.stringify(rsvpData)
-        });
+            try {
+                const response = await fetch('https://formspree.io/f/mljggpgz', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify(rsvpData)
+                });
 
-        if (response.ok) {
-            // Guardar copia local opcionalmente en el navegador
-            let currentData = JSON.parse(localStorage.getItem('wedding_rsvp_santiago_jenifer') || '[]');
-            currentData.push(rsvpData);
-            localStorage.setItem('wedding_rsvp_santiago_jenifer', JSON.stringify(currentData));
+                if (response.ok) {
+                    let currentData = JSON.parse(localStorage.getItem('wedding_rsvp_santiago_jenifer') || '[]');
+                    currentData.push(rsvpData);
+                    localStorage.setItem('wedding_rsvp_santiago_jenifer', JSON.stringify(currentData));
 
-            // Mostrar mensaje de éxito
-            document.getElementById('rsvp-form').classList.add('hidden');
-            document.getElementById('rsvp-success').classList.remove('hidden');
-        } else {
-            alert('Hubo un problema al enviar tu respuesta. Por favor, inténtalo de nuevo.');
-        }
-    } catch (error) {
-        alert('Error de red. Por favor, verifica tu conexión e inténtalo más tarde.');
-    }
-}
-
-// Función para reiniciar el formulario si se presiona "Enviar otra respuesta"
-function resetForm() {
-    const form = document.getElementById('rsvp-form');
-    form.reset();
-    document.getElementById('allergies-container').classList.add('hidden');
-    document.getElementById('rsvp-success').classList.add('hidden');
-    form.classList.remove('hidden');
-}
-
-        function copyIBAN() {
-            const iban = document.getElementById('iban-code').innerText;
-            const textarea = document.createElement('textarea');
-            textarea.value = iban;
-            document.body.appendChild(textarea);
-            textarea.select();
-            document.execCommand('copy');
-            document.body.removeChild(textarea);
-
-            const msg = document.getElementById('copy-msg');
-            msg.classList.remove('hidden');
-            setTimeout(() => msg.classList.add('hidden'), 3000);
+                    document.getElementById('rsvp-form').classList.add('hidden');
+                    document.getElementById('rsvp-success').classList.remove('hidden');
+                } else {
+                    alert(t.alertError);
+                }
+            } catch (error) {
+                alert(t.alertNetwork);
+            }
         }
 
-document.addEventListener('DOMContentLoaded', () => {
-    const dietSelect = document.getElementById('diet');
-    const allergiesContainer = document.getElementById('allergies-container');
-    const allergiesInput = document.getElementById('allergies-details');
-
-    function toggleAllergiesInput() {
-        if (dietSelect.value === 'Alergias') {
-            allergiesContainer.classList.remove('hidden');
-            allergiesInput.focus(); // Pone el foco directamente en el cuadro de texto
-        } else {
-            allergiesContainer.classList.add('hidden');
-            allergiesInput.value = ''; // Opcional: limpia el campo si eligen otra opción
+        function resetForm() {
+            const form = document.getElementById('rsvp-form');
+            form.reset();
+            document.getElementById('allergies-container').classList.add('hidden');
+            document.getElementById('rsvp-success').classList.add('hidden');
+            form.classList.remove('hidden');
         }
-    }
-
-    // Escuchar cambios en el selector
-    dietSelect.addEventListener('change', toggleAllergiesInput);
-
-    // Comprobar estado inicial (por si la página se recarga con la opción seleccionada)
-    toggleAllergiesInput();
-});
     </script>
 </body>
 </html>
